@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Jukebox_Heros.SongLibrary;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,39 +25,18 @@ namespace Jukebox_Heros
         
         public MainWindow() {
             InitializeComponent();
+
+            SongUpload songUpload = new SongUpload(Song_List_Box);
+            Upload_Song_Button.Click += songUpload.UploadSong;
+
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
-            {
-                InitialDirectory = @"C:\",
-                Title = "Browse Music Files",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "mp3",
-                Filter = "mp3 files (*.mp3)|*.mp3",
-                FilterIndex = 2,
-                RestoreDirectory = true,
-
-                ReadOnlyChecked = true,
-                ShowReadOnly = true
-            };
-
-            if (openFileDialog1.ShowDialog() == true)
-            {
-                listBox1.Items.Add(openFileDialog1.SafeFileName);
-            }
-        }
-
+        /*
         private void Remove_Song_Click(object sender, RoutedEventArgs e)
         {
             while (listBox1.SelectedItems.Count > 0)
             {
                 listBox1.Items.Remove(listBox1.SelectedItems[0]);
             }
-        }
+        }*/
     }
 }
