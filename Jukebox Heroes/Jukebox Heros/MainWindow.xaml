@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Upload Music" HorizontalAlignment="Left" Margin="568,344,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C" Click="Button_Click"/>
-        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="261" Margin="568,61,0,0" VerticalAlignment="Top" Width="128"/>
-        <Button x:Name="Remove_Song" Content="Remove" HorizontalAlignment="Left" Margin="568,10,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" Click="Remove_Song_Click"/>
+        <Button x:Name="Upload_Song_Button" Content="Upload Music" HorizontalAlignment="Left" Margin="568,344,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
+        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="568,61,0,0" VerticalAlignment="Top" Width="128"/>
+        <Button x:Name="Remove_Song_Button" Content="Remove" HorizontalAlignment="Left" Margin="568,10,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
 
     </Grid>
 </Window>
