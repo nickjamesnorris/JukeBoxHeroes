@@ -40,5 +40,14 @@ namespace Jukebox_Heros.SongLibrary
             }
         }
 
+
+        public void Remove_Song_Click(object sender, RoutedEventArgs e)
+        {
+            while (songList.SelectedItems.Count > 0)
+            {
+                songList.Items.Remove(songList.SelectedItems[0]);
+            }
+        }
+
     }
 }
