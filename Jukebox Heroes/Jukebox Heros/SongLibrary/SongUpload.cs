@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Jukebox_Heros.SongLibrary
 {
@@ -16,6 +17,10 @@ namespace Jukebox_Heros.SongLibrary
 
         public SongUpload(ListBox songList) {
             this.songList = songList;
+        }
+
+        public SongUpload()
+        {
         }
 
         public void UploadSong(object sender, RoutedEventArgs e) {
@@ -36,7 +41,7 @@ namespace Jukebox_Heros.SongLibrary
             };
 
             if (openFileDialog1.ShowDialog() == true) {
-                songList.Items.Add(openFileDialog1.SafeFileName);
+                songList.Items.Add(openFileDialog1.FileName);
             }
         }
 
