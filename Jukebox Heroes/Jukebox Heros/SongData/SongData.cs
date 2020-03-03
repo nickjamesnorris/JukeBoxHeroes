@@ -29,6 +29,11 @@ namespace Jukebox_Heros.SongData
             this.genres = file.Tag.Genres;
             this.duration = file.Properties.Duration;
 
+            if (this.title == null)
+            {
+                this.title = filePath;
+            }
+
         }
  
           
