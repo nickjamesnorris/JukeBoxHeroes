@@ -73,7 +73,10 @@ namespace Jukebox_Heros.SongData
             return duration;
         }
 
-
+        public override string ToString()
+        {
+            return title;
+        }
 
         
 

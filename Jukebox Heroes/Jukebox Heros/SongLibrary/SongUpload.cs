@@ -37,7 +37,7 @@ namespace Jukebox_Heros.SongLibrary
 
             if (openFileDialog1.ShowDialog() == true) {
                 SongData.SongData song = new SongData.SongData(openFileDialog1.FileName);
-                songList.Items.Add(openFileDialog1.SafeFileName);
+                songList.Items.Add(song);
             }
         }
 
