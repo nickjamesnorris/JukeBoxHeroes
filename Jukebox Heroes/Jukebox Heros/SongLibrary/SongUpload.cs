@@ -41,7 +41,8 @@ namespace Jukebox_Heros.SongLibrary
             };
 
             if (openFileDialog1.ShowDialog() == true) {
-                songList.Items.Add(openFileDialog1.FileName);
+                SongData.SongData song = new SongData.SongData(openFileDialog1.FileName);
+                songList.Items.Add(song);
             }
         }
 
