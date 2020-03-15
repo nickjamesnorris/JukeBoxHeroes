@@ -58,7 +58,8 @@ namespace Jukebox_Heros.PlayerUI
 
         public void GetSong()
         {
-            mediaPlayer.Open((Uri)songList.SelectedItem.getUri());
+            SongData.SongData song = (SongData.SongData) songList.SelectedItem;
+            mediaPlayer.Open(song.getUri());
         }
     }
 }
