@@ -31,7 +31,7 @@ namespace Jukebox_Heros
             Upload_Song_Button.Click += songUpload.UploadSong;
             Remove_Song_Button.Click += songUpload.Remove_Song_Click;
 
-            Player player = new Player();
+            Player player = new Player(Song_List_Box);
             Play_Button.Click += player.Play_Click;
             Pause_Button.Click += player.Pause_Click;
             Stop_Button.Click += player.Stop_Click;

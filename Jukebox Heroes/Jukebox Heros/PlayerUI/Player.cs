@@ -15,12 +15,11 @@ namespace Jukebox_Heros.PlayerUI
     class Player
     {
         private MediaPlayer mediaPlayer = new MediaPlayer();
-        public SongUpload songList = new SongUpload();
+        private ListBox songList;
 
-        public Player()
+        public Player(ListBox songList)
         {
-            GetSong();
-
+            this.songList = songList;
             //DispatcherTimer timer = new DispatcherTimer();
             //timer.Interval = TimeSpan.FromSeconds(1);
             //timer.Tick += timer_Tick;
@@ -42,7 +41,7 @@ namespace Jukebox_Heros.PlayerUI
 
         public void Play_Click(object sender, RoutedEventArgs e)
         {
-           // mediaPlayer.Source = GetSong();
+            GetSong();
            //Nick I Love you. You are too good to me. Have a sweet spring break
             mediaPlayer.Play();
         }
@@ -59,8 +58,7 @@ namespace Jukebox_Heros.PlayerUI
 
         public void GetSong()
         {
-            mediaPlayer.Open(new Uri("C:\\Users\\nickj\\Pictures\\Misc\\SE2\\Childish Gambino - Me and Your Mama (Official Audio).mp3"));
-            //songList.Get_Song();
+            mediaPlayer.Open((Uri)songList.SelectedItem.getUri());
         }
     }
 }
