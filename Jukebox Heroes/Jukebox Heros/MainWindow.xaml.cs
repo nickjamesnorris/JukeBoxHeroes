@@ -1,4 +1,5 @@
-﻿using Jukebox_Heros.SongLibrary;
+﻿using Jukebox_Heros.PlayerUI;
+using Jukebox_Heros.SongLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,11 @@ namespace Jukebox_Heros
             SongUpload songUpload = new SongUpload(Song_List_Box);
             Upload_Song_Button.Click += songUpload.UploadSong;
             Remove_Song_Button.Click += songUpload.Remove_Song_Click;
+
+            Player player = new Player(Song_List_Box);
+            Play_Button.Click += player.Play_Click;
+            Pause_Button.Click += player.Pause_Click;
+            Stop_Button.Click += player.Stop_Click;
 
         }
         
