@@ -14,6 +14,8 @@
         <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="168,332,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Pause_Button" Content="Pause" HorizontalAlignment="Left" Margin="275,332,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Stop_Button" Content="Stop" HorizontalAlignment="Left" Margin="381,332,0,0" VerticalAlignment="Top" Width="75"/>
+        <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="100" Margin="220,85,0,0" VerticalAlignment="Top" Width="100"/>
+        <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" HorizontalAlignment="Left" Margin="53,279,0,0" VerticalAlignment="Top" Width="472"/>
 
     </Grid>
 </Window>
