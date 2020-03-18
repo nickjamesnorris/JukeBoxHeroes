@@ -17,14 +17,16 @@ namespace Jukebox_Heros.PlayerUI
     {
         private MediaElement mediaPlayer;
         private ListBox songList;
+        private TextBlock timeText;
         private bool mediaPlayerIsPlaying = false, userIsDraggingSlider = false;
         private Slider slider;
 
-        public Player(ListBox songList, MediaElement mediaPlayer, Slider slider)
+        public Player(ListBox songList, MediaElement mediaPlayer, Slider slider, TextBlock timeText)
         {
             this.songList = songList;
             this.mediaPlayer = mediaPlayer;
             this.slider = slider;
+            this.timeText = timeText;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -65,7 +67,7 @@ namespace Jukebox_Heros.PlayerUI
         public void GetSong()
         {
             SongData.SongData song = (SongData.SongData) songList.SelectedItem;
-            mediaPlayer.Source = song.getUri();
+            if(song != null) mediaPlayer.Source = song.getUri();
         }
 
         public void slider_DragStarted() {
@@ -77,8 +79,8 @@ namespace Jukebox_Heros.PlayerUI
             mediaPlayer.Position = TimeSpan.FromSeconds(slider.Value);
         }
 
-        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-            //lblProgressStatus.Text = TimeSpan.FromSeconds(sliProgress.Value).ToString(@"hh\:mm\:ss");
+        public void slider_ValueChanged() {
+            timeText.Text = TimeSpan.FromSeconds(slider.Value).ToString(@"hh\:mm\:ss");
         }
     }
 }
