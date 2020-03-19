@@ -23,6 +23,7 @@ namespace Jukebox_Heros.PlayerUI
         private bool mediaPlayerIsPlaying = false, userIsDraggingSlider = false;
         private Slider slider;
         private PlaylistData playList;
+        private int currentSongIndex;
 
         public Player(ListBox songList, MediaElement mediaPlayer, Slider slider, TextBlock timeText, PlaylistData playList)
         {
@@ -31,6 +32,7 @@ namespace Jukebox_Heros.PlayerUI
             this.slider = slider;
             this.timeText = timeText;
             this.playList = playList;
+            this.currentSongIndex = -1;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -49,12 +51,9 @@ namespace Jukebox_Heros.PlayerUI
             }
         }
 
-
-
         public void Play_Click(object sender, RoutedEventArgs e)
         {
             GetSong();
-           //Nick I Love you. You are too good to me. Have a sweet spring break
             mediaPlayer.Play();
             mediaPlayerIsPlaying = true;
         }
@@ -70,6 +69,60 @@ namespace Jukebox_Heros.PlayerUI
             mediaPlayerIsPlaying = false;
         }
 
+        public void Next_Click(object sender, RoutedEventArgs e)
+        {
+            //playList.getNextSong();
+            GetNextSong();
+        }
+
+        public void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            //playList.getPreviousSong();
+            GetPreviousSong();
+        }
+
+        public void GetNextSong()
+        {
+            if(this.currentSongIndex == -1)
+            {
+                this.currentSongIndex = songList.SelectedIndex;
+            }
+
+            this.currentSongIndex++;
+
+            if (this.currentSongIndex < songList.Items.Count)
+            {
+                SongData song = (SongData)songList.Items[this.currentSongIndex];
+                if(song != null) mediaPlayer.Source = song.getUri();
+            }
+            else
+            {
+                this.currentSongIndex = 0;
+                SongData song = (SongData)songList.Items[this.currentSongIndex];
+                if(song != null) mediaPlayer.Source = song.getUri();
+            }
+        }
+        public void GetPreviousSong()
+        {
+            if (this.currentSongIndex == -1)
+            {
+                this.currentSongIndex = songList.SelectedIndex;
+            }
+
+            this.currentSongIndex--;
+
+            if (this.currentSongIndex < songList.Items.Count && this.currentSongIndex != -1)
+            {
+                SongData song = (SongData)songList.Items[this.currentSongIndex];
+                if (song != null) mediaPlayer.Source = song.getUri();
+            }
+            else 
+            {
+                this.currentSongIndex = songList.Items.Count - 1;
+                SongData song = (SongData)songList.Items[this.currentSongIndex];
+                if (song != null) mediaPlayer.Source = song.getUri();
+            }
+        }
         public void GetSong()
         {
             SongData song = (SongData) songList.SelectedItem;

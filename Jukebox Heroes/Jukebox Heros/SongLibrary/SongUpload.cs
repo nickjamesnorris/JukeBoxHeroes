@@ -39,15 +39,20 @@ namespace Jukebox_Heros.SongLibrary
                 RestoreDirectory = true,
 
                 ReadOnlyChecked = true,
-                ShowReadOnly = true
+                ShowReadOnly = true,
+                Multiselect = true
             };
 
-            if (openFileDialog1.ShowDialog() == true) {
-                SongData song = new SongData(openFileDialog1.FileName);
-                songList.addSong(song);
+            if (openFileDialog1.ShowDialog() == true)
+            {
+                //SongData song = new SongData(openFileDialog1.FileName);
+                foreach (string file in openFileDialog1.FileNames)
+                {
+                    SongData song = new SongData(file);
+                    songList.addSong(song);
+                }
             }
         }
-
 
         public void Remove_Song_Click(object sender, RoutedEventArgs e)
         {
