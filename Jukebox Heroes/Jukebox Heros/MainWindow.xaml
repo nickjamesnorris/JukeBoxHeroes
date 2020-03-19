@@ -19,6 +19,7 @@
         <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="47,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="473,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="382,360,0,0" VerticalAlignment="Top" Width="65"/>
+        <Button x:Name="Song_Library_Save_Button" Content="Save Song Library" Click="Song_Library_Save_Button_Click" HorizontalAlignment="Left" Margin="27,337,0,0" VerticalAlignment="Top" Width="101"/>
 
     </Grid>
 </Window>

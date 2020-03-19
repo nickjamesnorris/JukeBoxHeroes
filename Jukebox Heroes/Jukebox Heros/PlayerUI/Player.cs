@@ -126,13 +126,13 @@ namespace Jukebox_Heros.PlayerUI
         public void GetSong()
         {
             SongData song = (SongData) songList.SelectedItem;
-            if(song != null) mediaPlayer.Source = song.getUri();
+            if(song != null) mediaPlayer.Source = song.songUri;
         }
 
 
         private void OnMediaEnded(object sender, EventArgs e)
         {
-            mediaPlayer.Source = playList.getNextSong().getUri();
+            mediaPlayer.Source = playList.getNextSong().songUri;
         }
 
         public void slider_DragStarted() {
