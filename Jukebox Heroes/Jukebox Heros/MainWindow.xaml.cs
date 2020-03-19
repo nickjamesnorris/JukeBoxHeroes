@@ -63,5 +63,10 @@ namespace Jukebox_Heros
         private void Song_Library_Save_Button_Click(object sender, RoutedEventArgs e) {
             songLibrary.saveLibrary();
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
