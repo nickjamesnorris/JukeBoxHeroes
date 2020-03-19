@@ -14,10 +14,10 @@ namespace Jukebox_Heros.SongLibrary
 {
     class SongUpload
     {
-        PlaylistData songList;
+        SongLibraryData songList;
 
 
-        public SongUpload(PlaylistData songList) {
+        public SongUpload(SongLibraryData songList) {
             this.songList = songList;
         }
 
@@ -51,7 +51,7 @@ namespace Jukebox_Heros.SongLibrary
 
         public void Remove_Song_Click(object sender, RoutedEventArgs e)
         {
-            songList.removeSong();
+            //songList.removeSong();
         }
 
     }

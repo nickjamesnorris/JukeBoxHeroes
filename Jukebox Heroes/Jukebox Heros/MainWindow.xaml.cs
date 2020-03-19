@@ -27,12 +27,15 @@ namespace Jukebox_Heros
     {
         Player player;
         PlaylistData playlist;
+        SongLibraryData songLibrary;
 
         public MainWindow() {
             InitializeComponent();
 
+            songLibrary = new SongLibraryData();
+
             playlist = new PlaylistData(Song_List_Box);
-            SongUpload songUpload = new SongUpload(playlist);
+            SongUpload songUpload = new SongUpload(songLibrary);
             Upload_Song_Button.Click += songUpload.UploadSong;
             Remove_Song_Button.Click += songUpload.Remove_Song_Click;
 
@@ -53,6 +56,10 @@ namespace Jukebox_Heros
 
         private void Song_Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             player.slider_ValueChanged();
+        }
+
+        private void Song_Library_Save_Button_Click(object sender, RoutedEventArgs e) {
+            songLibrary.saveLibrary();
         }
     }
 }

@@ -17,6 +17,7 @@
         <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="100" Margin="220,85,0,0" VerticalAlignment="Top" Width="100"/>
         <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" ValueChanged="Song_Slider_ValueChanged" HorizontalAlignment="Left" Margin="101,309,0,0" VerticalAlignment="Top" Width="451"/>
         <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="47,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="Song_Library_Save_Button" Content="Save Song Library" Click="Song_Library_Save_Button_Click" HorizontalAlignment="Left" Margin="27,337,0,0" VerticalAlignment="Top" Width="101"/>
 
     </Grid>
 </Window>

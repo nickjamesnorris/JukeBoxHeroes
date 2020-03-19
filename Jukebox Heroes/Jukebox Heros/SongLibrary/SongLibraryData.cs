@@ -11,8 +11,11 @@ namespace Jukebox_Heros.SongLibrary
 {
     class SongLibraryData
     {
-        private const string libraryFilePath = "./data/library.json";
-        List<SongData> songList = new List<SongData>();
+        private const string libraryFilePath = "..//..//data//library.json";
+        private List<SongData> _songList = new List<SongData>();
+        public List<SongData> songList {
+            get { return _songList; }
+        }
 
         public SongLibraryData() {
 
@@ -25,14 +28,20 @@ namespace Jukebox_Heros.SongLibrary
 
         public void removeSong(int songID)
         {
-            songList.Remove(songList.Find(song => song.getSongID() == songID));
+            songList.Remove(songList.Find(song => song.songID == songID));
         }
         public void saveLibrary() {
-            File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(songList));
+            if (!File.Exists(libraryFilePath)) {
+                File.Create(libraryFilePath);
+            }
+
+            File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(this));
+            _songList.ForEach((item) => Console.WriteLine(item.title));
+            Console.WriteLine(JsonConvert.SerializeObject(this));
         }
 
         public void loadLibrary() {
-            songList = JsonConvert.DeserializeObject<List<SongData>>(File.ReadAllText(libraryFilePath));
+           // songList = JsonConvert.DeserializeObject<List<SongLibraryData>>(File.ReadAllText(libraryFilePath));
         }
 
     }
