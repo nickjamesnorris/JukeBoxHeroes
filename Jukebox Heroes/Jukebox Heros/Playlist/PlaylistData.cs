@@ -47,5 +47,16 @@ namespace Jukebox_Heros.Playlist
         {
             return songData.ElementAt(currentSongIndex);
         }
+
+        public void removeSong()
+        {
+            songData.RemoveAt(songsListBox.SelectedIndex);
+            songsListBox.Items.RemoveAt(songsListBox.SelectedIndex);
+        }
+
+        //public SongData nextSong()
+        //{
+
+        //}
     }
 }

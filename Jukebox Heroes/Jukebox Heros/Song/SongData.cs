@@ -11,11 +11,13 @@ namespace Jukebox_Heros.Song
 {
     class SongData
     {
+        private static int nextSongID = 0;
         private Uri linkToSong;
         private string title, album, artist;
         private uint year;
         private string[] genres;
         private TimeSpan duration;
+        int songID;
 
         public SongData(string filePath)
         {
@@ -33,6 +35,8 @@ namespace Jukebox_Heros.Song
             {
                 this.title = filePath;
             }
+
+            this.songID = nextSongID++;
 
         }
  
@@ -66,6 +70,12 @@ namespace Jukebox_Heros.Song
             return genres;
         }
 
+        public int getSongID()
+        {
+            return songID;
+        }
+
+
         public TimeSpan getDuration()
         {
             return duration;
@@ -75,7 +85,6 @@ namespace Jukebox_Heros.Song
         {
             return title;
         }
-
         
 
 
