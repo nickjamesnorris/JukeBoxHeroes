@@ -1,4 +1,5 @@
-﻿using Jukebox_Heros.SongLibrary;
+﻿using Jukebox_Heros.Song;
+using Jukebox_Heros.SongLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -66,7 +67,7 @@ namespace Jukebox_Heros.PlayerUI
 
         public void GetSong()
         {
-            SongData.SongData song = (SongData.SongData) songList.SelectedItem;
+            SongData song = (SongData) songList.SelectedItem;
             if(song != null) mediaPlayer.Source = song.getUri();
         }
 

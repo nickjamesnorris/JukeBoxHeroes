@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TagLib;
 
 
-namespace Jukebox_Heros.SongData
+namespace Jukebox_Heros.Song
 {
     class SongData
     {

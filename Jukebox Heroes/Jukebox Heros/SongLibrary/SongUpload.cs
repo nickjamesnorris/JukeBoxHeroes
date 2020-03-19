@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Jukebox_Heros.Song;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace Jukebox_Heros.SongLibrary
             };
 
             if (openFileDialog1.ShowDialog() == true) {
-                SongData.SongData song = new SongData.SongData(openFileDialog1.FileName);
+                SongData song = new SongData(openFileDialog1.FileName);
                 songList.Items.Add(song);
             }
         }
