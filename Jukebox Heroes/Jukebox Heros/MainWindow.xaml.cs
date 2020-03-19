@@ -1,4 +1,5 @@
 ﻿using Jukebox_Heros.PlayerUI;
+using Jukebox_Heros.Playlist;
 using Jukebox_Heros.SongLibrary;
 using Microsoft.Win32;
 using System;
@@ -25,11 +26,13 @@ namespace Jukebox_Heros
     public partial class MainWindow : Window
     {
         Player player;
+        PlaylistData playlist;
 
         public MainWindow() {
             InitializeComponent();
 
-            SongUpload songUpload = new SongUpload(Song_List_Box);
+            playlist = new PlaylistData(Song_List_Box);
+            SongUpload songUpload = new SongUpload(playlist);
             Upload_Song_Button.Click += songUpload.UploadSong;
             Remove_Song_Button.Click += songUpload.Remove_Song_Click;
 

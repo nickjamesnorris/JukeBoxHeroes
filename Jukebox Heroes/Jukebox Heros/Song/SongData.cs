@@ -36,8 +36,6 @@ namespace Jukebox_Heros.Song
 
         }
  
-          
-
         public Uri getUri()
         {
             return linkToSong;
