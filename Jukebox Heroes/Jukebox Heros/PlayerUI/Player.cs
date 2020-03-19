@@ -70,6 +70,23 @@ namespace Jukebox_Heros.PlayerUI
             mediaPlayerIsPlaying = false;
         }
 
+        public void Next_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Stop();
+            playList.getNextSong();
+            mediaPlayer.Play();
+        }
+
+        public void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            //playList.getPreviousSong();
+            //mediaPlayer.Play();
+            int currentsong = songList.SelectedIndex;
+            currentsong = currentsong - 1;
+            SongData song = (SongData) songList.Items[currentsong];
+            if (song != null) mediaPlayer.Source = song.getUri();
+        }
+
         public void GetSong()
         {
             SongData song = (SongData) songList.SelectedItem;

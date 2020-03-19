@@ -40,6 +40,8 @@ namespace Jukebox_Heros
             Play_Button.Click += player.Play_Click;
             Pause_Button.Click += player.Pause_Click;
             Stop_Button.Click += player.Stop_Click;
+            Next_Button.Click += player.Next_Click;
+            Previous_Button.Click += player.Previous_Click;
 
         }
 

@@ -29,6 +29,20 @@ namespace Jukebox_Heros.Playlist
         public SongData getNextSong()
         { 
             return songData.ElementAt(++currentSongIndex);
+            //if (currentSongIndex)
+            //{
+            //    currentSongIndex = listBox.SelectedIndex;
+            //}
+            //currentSongIndex++;
+            //if (currentSongIndex < listBox.Items.Count)
+            //{
+            //    player.Play(listBox.Items[currentSongIndex]);
+            //}
+            //else
+            //{
+            //    // last song in listbox has been played
+            //}
+            
         }
 
         public SongData getPreviousSong()
