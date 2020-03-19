@@ -1,4 +1,5 @@
-﻿using Jukebox_Heros.Song;
+﻿using Jukebox_Heros.Playlist;
+using Jukebox_Heros.Song;
 using Jukebox_Heros.SongLibrary;
 using Microsoft.Win32;
 using System;
@@ -21,18 +22,22 @@ namespace Jukebox_Heros.PlayerUI
         private TextBlock timeText;
         private bool mediaPlayerIsPlaying = false, userIsDraggingSlider = false;
         private Slider slider;
+        private PlaylistData playList;
 
-        public Player(ListBox songList, MediaElement mediaPlayer, Slider slider, TextBlock timeText)
+        public Player(ListBox songList, MediaElement mediaPlayer, Slider slider, TextBlock timeText, PlaylistData playList)
         {
             this.songList = songList;
             this.mediaPlayer = mediaPlayer;
             this.slider = slider;
             this.timeText = timeText;
+            this.playList = playList;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += tick;
             timer.Start();
+
+            mediaPlayer.MediaEnded += OnMediaEnded;
 
         }
 
@@ -69,6 +74,12 @@ namespace Jukebox_Heros.PlayerUI
         {
             SongData song = (SongData) songList.SelectedItem;
             if(song != null) mediaPlayer.Source = song.getUri();
+        }
+
+
+        private void OnMediaEnded(object sender, EventArgs e)
+        {
+            mediaPlayer.Source = playList.getNextSong().getUri();
         }
 
         public void slider_DragStarted() {

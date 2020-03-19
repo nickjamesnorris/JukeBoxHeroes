@@ -53,10 +53,5 @@ namespace Jukebox_Heros.Playlist
             songData.RemoveAt(songsListBox.SelectedIndex);
             songsListBox.Items.RemoveAt(songsListBox.SelectedIndex);
         }
-
-        //public SongData nextSong()
-        //{
-
-        //}
     }
 }
