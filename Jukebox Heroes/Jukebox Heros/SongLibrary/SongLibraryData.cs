@@ -9,13 +9,21 @@ namespace Jukebox_Heros.SongLibrary
 {
     class SongLibraryData
     {
-        List<SongData> songData = new List<SongData>();
+        List<SongData> songList = new List<SongData>();
 
         public SongLibraryData() {
 
         }
 
+        public void addSong(SongData song)
+        {
+            songList.Add(song);
+        }
 
+        public void removeSong(int songID)
+        {
+            songList.Remove(songList.Find(song => song.getSongID() == songID));
+        }
 
     }
 }
