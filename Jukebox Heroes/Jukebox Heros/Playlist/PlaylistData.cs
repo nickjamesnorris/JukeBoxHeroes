@@ -27,7 +27,8 @@ namespace Jukebox_Heros.Playlist
             songsListBox.Items.Add(song);
         }
         public SongData getNextSong()
-        { 
+        {
+            currentSongIndex = songsListBox.SelectedIndex;
             return songData.ElementAt(++currentSongIndex);
             //if (currentSongIndex)
             //{
