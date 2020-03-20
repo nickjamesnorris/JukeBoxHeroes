@@ -20,7 +20,7 @@
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Song_Library_Save_Button" Content="Save Song Library" Click="Song_Library_Save_Button_Click" HorizontalAlignment="Left" Margin="25,360,0,0" VerticalAlignment="Top" Width="101"/>
-        <ListBox x:Name="Song_Library" Margin="10,61,702,98" Width="128" />
+        <ListBox x:Name="Song_Library" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,61,0,0" Width="128" Height="261" />
         <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
         <Label x:Name="Song_Library_Label" Content="Song Library" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,7,0,0" FontSize="14"/>
         <Button x:Name="Library_Remove_Song_Button" Content="Remove" HorizontalAlignment="Left" Margin="11,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
