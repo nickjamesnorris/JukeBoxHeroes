@@ -9,13 +9,14 @@ using TagLib;
 
 namespace Jukebox_Heros.Song
 {
-    class SongData {
+    public class SongData {
         private static int nextSongID = 0;
 
         public Uri songUri { get; }
         public string title { get; }
         public string album { get; }
         public string artist { get; }
+        public string filePath { get; }
         public uint year { get; }
         public string[] genres { get; }
         public TimeSpan duration { get; }
@@ -23,6 +24,7 @@ namespace Jukebox_Heros.Song
 
         public SongData(string filePath)
         {
+            this.filePath = filePath;
             this.songUri = new Uri(filePath);
             TagLib.File file = TagLib.File.Create(filePath);
 

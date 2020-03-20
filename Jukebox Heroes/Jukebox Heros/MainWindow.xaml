@@ -8,9 +8,9 @@
         Title="MainWindow" Height="450" Width="850">
     <Grid>
 
-        <Button x:Name="Upload_Song_Button" Content="Upload Music" HorizontalAlignment="Left" Margin="656,322,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
+        <Button x:Name="Add_Song_To_Playlist_Button" Content="Add Song" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="656,322,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
         <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="656,61,0,0" VerticalAlignment="Top" Width="128"/>
-        <Button x:Name="Remove_Song_Button" Content="Remove" HorizontalAlignment="Left" Margin="656,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
+        <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove" HorizontalAlignment="Left" Margin="656,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
         <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="198,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Pause_Button" Content="Pause" HorizontalAlignment="Left" Margin="290,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Stop_Button" Content="Stop" HorizontalAlignment="Left" Margin="381,360,0,0" VerticalAlignment="Top" Width="65"/>
@@ -19,11 +19,12 @@
         <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="145,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button x:Name="Song_Library_Save_Button" Content="Save Song Library" Click="Song_Library_Save_Button_Click" HorizontalAlignment="Left" Margin="25,360,0,0" VerticalAlignment="Top" Width="101"/>
-        <ListBox x:Name="Song_Library" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,61,0,0" Width="128" Height="261" />
+        <Button x:Name="Song_Library_Save_Button" Content="Save Library" Click="Song_Library_Save_Button_Click" HorizontalAlignment="Left" Margin="25,349,0,0" VerticalAlignment="Top" Width="101"/>
+        <ListBox x:Name="Song_Library_List_Box" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,61,0,0" Width="128" Height="261" />
         <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
         <Label x:Name="Song_Library_Label" Content="Song Library" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,7,0,0" FontSize="14"/>
         <Button x:Name="Library_Remove_Song_Button" Content="Remove" HorizontalAlignment="Left" Margin="11,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
         <Button x:Name="Library_Upload_Song_Button" Content="Upload Music" HorizontalAlignment="Left" Margin="11,321,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
+        <Button x:Name="Song_Library_Load_Button" Content="Load Library" Click="Song_Library_Load_Button_Click"  HorizontalAlignment="Left" Margin="25,374,0,0" VerticalAlignment="Top" Width="101"/>
     </Grid>
 </Window>

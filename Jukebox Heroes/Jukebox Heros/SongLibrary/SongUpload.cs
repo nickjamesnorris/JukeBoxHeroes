@@ -12,17 +12,13 @@ using System.Windows.Media;
 
 namespace Jukebox_Heros.SongLibrary
 {
-    class SongUpload
+    public class SongUpload
     {
         SongLibraryData songList;
 
 
         public SongUpload(SongLibraryData songList) {
             this.songList = songList;
-        }
-
-        public SongUpload()
-        {
         }
 
         public void UploadSong(object sender, RoutedEventArgs e) {
@@ -56,7 +52,7 @@ namespace Jukebox_Heros.SongLibrary
 
         public void Remove_Song_Click(object sender, RoutedEventArgs e)
         {
-            //songList.removeSong();
+            songList.removeSelectedSong();
         }
 
     }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -32,14 +33,14 @@ namespace Jukebox_Heros
         public MainWindow() {
             InitializeComponent();
 
-            songLibrary = new SongLibraryData();
+            songLibrary = new SongLibraryData(Song_Library_List_Box);
 
-            playlist = new PlaylistData(Song_List_Box);
+            playlist = new PlaylistData(Song_List_Box, songLibrary);
             SongUpload songUpload = new SongUpload(songLibrary);
-            Upload_Song_Button.Click += songUpload.UploadSong;
-            Remove_Song_Button.Click += songUpload.Remove_Song_Click;
+            Library_Remove_Song_Button.Click += songUpload.Remove_Song_Click;
+            Library_Upload_Song_Button.Click += songUpload.UploadSong;
 
-            player = new Player(Song_List_Box, Media_Element, Song_Slider, Song_Time_Text, playlist);
+            player = new Player(Media_Element, Song_Slider, Song_Time_Text, playlist);
             Play_Button.Click += player.Play_Click;
             Pause_Button.Click += player.Pause_Click;
             Stop_Button.Click += player.Stop_Click;
@@ -48,11 +49,11 @@ namespace Jukebox_Heros
 
         }
 
-        private void Song_Slider_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e) {
+        private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {
             player.slider_DragStarted();
         }
 
-        private void Song_Slider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) {
+        private void Song_Slider_DragCompleted(object sender, DragCompletedEventArgs e) {
             player.slider_DragCompleted();
         }
 
@@ -64,9 +65,16 @@ namespace Jukebox_Heros
             songLibrary.saveLibrary();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+            playlist.addSongFromLibrary();
+        }
 
+        private void Remove_Song_From_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+            playlist.removeSong();
+        }
+
+        private void Song_Library_Load_Button_Click(object sender, RoutedEventArgs e) {
+            songLibrary.loadLibrary();
         }
     }
 }
