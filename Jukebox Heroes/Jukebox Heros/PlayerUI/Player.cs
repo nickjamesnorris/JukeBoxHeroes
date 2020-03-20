@@ -93,13 +93,13 @@ namespace Jukebox_Heros.PlayerUI
             if (this.currentSongIndex < songList.Items.Count)
             {
                 SongData song = (SongData)songList.Items[this.currentSongIndex];
-                if(song != null) mediaPlayer.Source = song.getUri();
+                if(song != null) mediaPlayer.Source = song.songUri;
             }
             else
             {
                 this.currentSongIndex = 0;
                 SongData song = (SongData)songList.Items[this.currentSongIndex];
-                if(song != null) mediaPlayer.Source = song.getUri();
+                if(song != null) mediaPlayer.Source = song.songUri;
             }
         }
         public void GetPreviousSong()
@@ -114,13 +114,13 @@ namespace Jukebox_Heros.PlayerUI
             if (this.currentSongIndex < songList.Items.Count && this.currentSongIndex != -1)
             {
                 SongData song = (SongData)songList.Items[this.currentSongIndex];
-                if (song != null) mediaPlayer.Source = song.getUri();
+                if (song != null) mediaPlayer.Source = song.songUri;
             }
             else 
             {
                 this.currentSongIndex = songList.Items.Count - 1;
                 SongData song = (SongData)songList.Items[this.currentSongIndex];
-                if (song != null) mediaPlayer.Source = song.getUri();
+                if (song != null) mediaPlayer.Source = song.songUri;
             }
         }
         public void GetSong()
