@@ -12,7 +12,7 @@ namespace Jukebox_Heros.SongLibrary
 {
     public class SongLibraryData
     {
-        private const string libraryFilePath = "..//..//data//library.json";
+        private const string libraryFilePath = ".//data//library.json";
         private List<SongData> _songList = new List<SongData>();
         public List<SongData> songList {
             get { return _songList; }
@@ -45,12 +45,12 @@ namespace Jukebox_Heros.SongLibrary
         }
 
         public void removeSelectedSong() {
-            removeSong(((SongData)libraryListBox.SelectedItem).songID);
+            if(libraryListBox.SelectedItem != null) removeSong(((SongData)libraryListBox.SelectedItem).songID);
         }
 
         public void saveLibrary() {
             if (!File.Exists(libraryFilePath)) {
-                System.IO.Directory.CreateDirectory("..//..//data");
+                System.IO.Directory.CreateDirectory(".//data");
                 
             }
             FileStream file = File.Create(libraryFilePath);
