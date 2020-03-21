@@ -1,4 +1,5 @@
-﻿using Jukebox_Heros.Song;
+﻿using Jukebox_Heros.Playlist;
+using Jukebox_Heros.Song;
 using Jukebox_Heros.SongLibrary;
 using Microsoft.Win32;
 using System;
@@ -14,25 +15,27 @@ using System.Windows.Threading;
 
 namespace Jukebox_Heros.PlayerUI
 {
-    class Player
+    public class Player
     {
         private MediaElement mediaPlayer;
-        private ListBox songList;
         private TextBlock timeText;
         private bool mediaPlayerIsPlaying = false, userIsDraggingSlider = false;
         private Slider slider;
+        private PlaylistData playList;
 
-        public Player(ListBox songList, MediaElement mediaPlayer, Slider slider, TextBlock timeText)
+        public Player(MediaElement mediaPlayer, Slider slider, TextBlock timeText, PlaylistData playList)
         {
-            this.songList = songList;
             this.mediaPlayer = mediaPlayer;
             this.slider = slider;
             this.timeText = timeText;
-
+            this.playList = playList;
+            
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += tick;
             timer.Start();
+
+            mediaPlayer.MediaEnded += OnMediaEnded;
 
         }
 
@@ -44,12 +47,9 @@ namespace Jukebox_Heros.PlayerUI
             }
         }
 
-
-
         public void Play_Click(object sender, RoutedEventArgs e)
         {
             GetSong();
-           //Nick I Love you. You are too good to me. Have a sweet spring break
             mediaPlayer.Play();
             mediaPlayerIsPlaying = true;
         }
@@ -61,14 +61,36 @@ namespace Jukebox_Heros.PlayerUI
 
         public void Stop_Click(object sender, RoutedEventArgs e)
         {
+            Stop();
+        }
+
+        public void Stop() {
             mediaPlayer.Stop();
             mediaPlayerIsPlaying = false;
         }
 
+        public void Next_Click(object sender, RoutedEventArgs e)
+        {
+            playList.nextSong();
+            GetSong();
+        }
+
+        public void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            playList.previousSong();
+            GetSong();
+        }
+
         public void GetSong()
         {
-            SongData song = (SongData) songList.SelectedItem;
-            if(song != null) mediaPlayer.Source = song.getUri();
+            SongData song = playList.getCurrentSong();
+            if(song != null) mediaPlayer.Source = song.songUri;
+        }
+
+        private void OnMediaEnded(object sender, EventArgs e)
+        {
+            playList.nextSong();
+            GetSong();
         }
 
         public void slider_DragStarted() {

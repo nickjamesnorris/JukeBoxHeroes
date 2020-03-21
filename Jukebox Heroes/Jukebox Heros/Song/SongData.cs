@@ -9,17 +9,23 @@ using TagLib;
 
 namespace Jukebox_Heros.Song
 {
-    class SongData
-    {
-        private Uri linkToSong;
-        private string title, album, artist;
-        private uint year;
-        private string[] genres;
-        private TimeSpan duration;
+    public class SongData {
+        private static int nextSongID = 0;
+
+        public Uri songUri { get; }
+        public string title { get; }
+        public string album { get; }
+        public string artist { get; }
+        public string filePath { get; }
+        public uint year { get; }
+        public string[] genres { get; }
+        public TimeSpan duration { get; }
+        public int songID { get; }
 
         public SongData(string filePath)
         {
-            this.linkToSong = new Uri(filePath);
+            this.filePath = filePath;
+            this.songUri = new Uri(filePath);
             TagLib.File file = TagLib.File.Create(filePath);
 
             this.title = file.Tag.Title;
@@ -34,50 +40,14 @@ namespace Jukebox_Heros.Song
                 this.title = filePath;
             }
 
-        }
- 
-          
+            this.songID = nextSongID++;
 
-        public Uri getUri()
-        {
-            return linkToSong;
-        }
-
-        public string getTitle()
-        {
-            return title;
-        }
-
-        public string getArtist()
-        {
-            return artist;
-        }
-
-        public string getAlbum()
-        {
-            return album;
-        }
-
-        public uint getYear()
-        {
-            return year;
-        }
-
-        public string[] getGenres()
-        {
-            return genres;
-        }
-
-        public TimeSpan getDuration()
-        {
-            return duration;
         }
 
         public override string ToString()
         {
             return title;
         }
-
         
 
 

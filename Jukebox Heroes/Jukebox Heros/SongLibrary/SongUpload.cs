@@ -1,4 +1,5 @@
-﻿using Jukebox_Heros.Song;
+﻿using Jukebox_Heros.Playlist;
+using Jukebox_Heros.Song;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,13 @@ using System.Windows.Media;
 
 namespace Jukebox_Heros.SongLibrary
 {
-    class SongUpload
+    public class SongUpload
     {
-        ListBox songList;
+        SongLibraryData songList;
 
 
-        public SongUpload(ListBox songList) {
+        public SongUpload(SongLibraryData songList) {
             this.songList = songList;
-        }
-
-        public SongUpload()
-        {
         }
 
         public void UploadSong(object sender, RoutedEventArgs e) {
@@ -38,22 +35,24 @@ namespace Jukebox_Heros.SongLibrary
                 RestoreDirectory = true,
 
                 ReadOnlyChecked = true,
-                ShowReadOnly = true
+                ShowReadOnly = true,
+                Multiselect = true
             };
 
-            if (openFileDialog1.ShowDialog() == true) {
-                SongData song = new SongData(openFileDialog1.FileName);
-                songList.Items.Add(song);
+            if (openFileDialog1.ShowDialog() == true)
+            {
+                //SongData song = new SongData(openFileDialog1.FileName);
+                foreach (string file in openFileDialog1.FileNames)
+                {
+                    SongData song = new SongData(file);
+                    songList.addSong(song);
+                }
             }
         }
 
-
         public void Remove_Song_Click(object sender, RoutedEventArgs e)
         {
-            while (songList.SelectedItems.Count > 0)
-            {
-                songList.Items.Remove(songList.SelectedItems[0]);
-            }
+            songList.removeSelectedSong();
         }
 
     }
