@@ -50,15 +50,26 @@ namespace Jukebox_Heros.SongLibrary
 
         public void saveLibrary() {
             if (!File.Exists(libraryFilePath)) {
-                File.Create(libraryFilePath);
+                System.IO.Directory.CreateDirectory("..//..//data");
+                
             }
-
+            FileStream file = File.Create(libraryFilePath);
+            file.Close();
             File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(this));
             _songList.ForEach((item) => Console.WriteLine(item.title));
+            
         }
 
         public void loadLibrary() {
+            if (!File.Exists(libraryFilePath))
+            {
+                return;
+            }
             SongLibraryData library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
+            if(library == null)
+            {
+                return;
+            }
             _songList = library.songList;
 
             syncListAndListbox();
