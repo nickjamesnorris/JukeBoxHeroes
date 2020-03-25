@@ -76,7 +76,8 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Compile Include="IPlaylistData.cs" />
+    <Compile Include="SongLibrary\ISongLibraryData.cs" />
+    <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
     <Compile Include="SongLibrary\SongLibraryData.cs" />
     <Compile Include="Song\SongData.cs" />
@@ -113,7 +114,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Jukebox Heros_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
