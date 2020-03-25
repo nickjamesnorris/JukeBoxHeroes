@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Controls;
 
 
-namespace Jukebox_Heroes.Playlist
+namespace Jukebox_Heroes.Playlist 
 {
 
     public class PlaylistData : IPlaylistData

@@ -7,7 +7,7 @@ using System.Windows.Threading;
 
 namespace Jukebox_Heroes.PlayerUI
 {
-    public class Player
+    public class Player : IPlayer
     {
         private MediaElement mediaPlayer;
         private TextBlock timeText;
@@ -79,7 +79,7 @@ namespace Jukebox_Heroes.PlayerUI
             if(song != null) mediaPlayer.Source = song.songUri;
         }
 
-        private void OnMediaEnded(object sender, EventArgs e)
+        public void OnMediaEnded(object sender, EventArgs e)
         {
             playList.nextSong();
             GetSong();
