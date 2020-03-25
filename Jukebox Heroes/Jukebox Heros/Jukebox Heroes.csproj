@@ -81,6 +81,7 @@
     <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
     <Compile Include="SongLibrary\SongLibraryData.cs" />
+    <Compile Include="Song\ISongUpload.cs" />
     <Compile Include="Song\SongData.cs" />
     <Compile Include="PlayerUI\Player.cs" />
     <Compile Include="SongLibrary\SongUpload.cs" />

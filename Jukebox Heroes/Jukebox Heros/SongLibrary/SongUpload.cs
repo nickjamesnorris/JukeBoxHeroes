@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace Jukebox_Heroes.SongLibrary
 {
-    public class SongUpload
+    public class SongUpload : ISongUpload
     {
         SongLibraryData songList;
 
