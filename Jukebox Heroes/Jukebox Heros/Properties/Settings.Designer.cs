@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jukebox_Heros.Properties
+namespace Jukebox_Heroes.Properties
 {
 
 

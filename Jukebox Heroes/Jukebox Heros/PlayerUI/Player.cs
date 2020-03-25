@@ -1,6 +1,6 @@
-﻿using Jukebox_Heros.Playlist;
-using Jukebox_Heros.Song;
-using Jukebox_Heros.SongLibrary;
+﻿using Jukebox_Heroes.Playlist;
+using Jukebox_Heroes.Song;
+using Jukebox_Heroes.SongLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace Jukebox_Heros.PlayerUI
+namespace Jukebox_Heroes.PlayerUI
 {
     public class Player
     {

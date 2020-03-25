@@ -1,5 +1,5 @@
-﻿using Jukebox_Heros.Playlist;
-using Jukebox_Heros.Song;
+﻿using Jukebox_Heroes.Playlist;
+using Jukebox_Heroes.Song;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Jukebox_Heros.SongLibrary
+namespace Jukebox_Heroes.SongLibrary
 {
     public class SongUpload
     {
