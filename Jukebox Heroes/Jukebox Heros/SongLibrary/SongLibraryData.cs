@@ -1,16 +1,13 @@
-﻿using Jukebox_Heros.Song;
+﻿using Jukebox_Heroes.Song;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Controls;
 
-namespace Jukebox_Heros.SongLibrary
+namespace Jukebox_Heroes.SongLibrary
 {
-    public class SongLibraryData
+    public class SongLibraryData : ISongLibraryData
     {
         private const string libraryFilePath = ".//data//library.json";
         private List<SongData> _songList = new List<SongData>();

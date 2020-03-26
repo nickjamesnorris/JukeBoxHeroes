@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TagLib;
 
 
-namespace Jukebox_Heros.Song
+namespace Jukebox_Heroes.Song
 {
     public class SongData {
         private static int nextSongID = 0;
@@ -48,11 +42,5 @@ namespace Jukebox_Heros.Song
         {
             return title;
         }
-        
-
-
-
-    }
-
-    
+    } 
 }

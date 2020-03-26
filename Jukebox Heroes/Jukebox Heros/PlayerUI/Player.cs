@@ -1,21 +1,13 @@
-﻿using Jukebox_Heros.Playlist;
-using Jukebox_Heros.Song;
-using Jukebox_Heros.SongLibrary;
-using Microsoft.Win32;
+﻿using Jukebox_Heroes.Playlist;
+using Jukebox_Heroes.Song;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace Jukebox_Heros.PlayerUI
+namespace Jukebox_Heroes.PlayerUI
 {
-    public class Player
+    public class Player : IPlayer
     {
         private MediaElement mediaPlayer;
         private TextBlock timeText;
@@ -87,7 +79,7 @@ namespace Jukebox_Heros.PlayerUI
             if(song != null) mediaPlayer.Source = song.songUri;
         }
 
-        private void OnMediaEnded(object sender, EventArgs e)
+        public void OnMediaEnded(object sender, EventArgs e)
         {
             playList.nextSong();
             GetSong();

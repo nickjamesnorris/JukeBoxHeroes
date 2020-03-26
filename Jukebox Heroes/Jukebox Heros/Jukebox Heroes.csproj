@@ -50,18 +50,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>8234D3A7F4F8FC00C37D4EA3B4D22C8F4DBC72E9</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>Jukebox Heros_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -88,8 +76,12 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="PlayerUI\IPlayer.cs" />
+    <Compile Include="SongLibrary\ISongLibraryData.cs" />
+    <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
     <Compile Include="SongLibrary\SongLibraryData.cs" />
+    <Compile Include="Song\ISongUpload.cs" />
     <Compile Include="Song\SongData.cs" />
     <Compile Include="PlayerUI\Player.cs" />
     <Compile Include="SongLibrary\SongUpload.cs" />
@@ -124,7 +116,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Jukebox Heros_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

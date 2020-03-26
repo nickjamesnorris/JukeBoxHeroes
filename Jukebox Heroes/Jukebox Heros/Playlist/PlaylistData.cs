@@ -1,17 +1,14 @@
-﻿using Jukebox_Heros.Song;
-using Jukebox_Heros.SongLibrary;
-using System;
+﻿using Jukebox_Heroes.Song;
+using Jukebox_Heroes.SongLibrary;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
-namespace Jukebox_Heros.Playlist
+
+namespace Jukebox_Heroes.Playlist 
 {
 
-    public class PlaylistData
+    public class PlaylistData : IPlaylistData
     {
         ListBox songsListBox;
         List<SongData> songData = new List<SongData>();

@@ -1,6 +1,6 @@
-﻿using Jukebox_Heros.PlayerUI;
-using Jukebox_Heros.Playlist;
-using Jukebox_Heros.SongLibrary;
+﻿using Jukebox_Heroes.PlayerUI;
+using Jukebox_Heroes.Playlist;
+using Jukebox_Heroes.SongLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Jukebox_Heros
+namespace Jukebox_Heroes
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
