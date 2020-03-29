@@ -46,7 +46,9 @@ namespace Jukebox_Heroes
             Stop_Button.Click += player.Stop_Click;
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
-
+            
+            //Display album art
+            //Album_Art = playlist.getCurrentSong().albumArt;
         }
 
         private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {

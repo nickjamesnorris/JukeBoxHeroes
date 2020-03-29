@@ -1,5 +1,7 @@
 ﻿using System;
-
+using System.Drawing;
+using System.IO;
+using TagLib;
 
 namespace Jukebox_Heroes.Song
 {
@@ -15,6 +17,7 @@ namespace Jukebox_Heroes.Song
         public string[] genres { get; }
         public TimeSpan duration { get; }
         public int songID { get; }
+        public Image albumArt { get; }
 
         public SongData(string filePath)
         {
@@ -35,7 +38,15 @@ namespace Jukebox_Heroes.Song
             }
 
             this.songID = nextSongID++;
-
+            if (file.Tag.Pictures != null)
+            {
+                MemoryStream ms = new MemoryStream(file.Tag.Pictures[0].Data.Data);
+                this.albumArt = Image.FromStream(ms);
+            }
+            else
+            {
+                this.albumArt = Image.FromFile("..//assets//AlbumArtPlaceholder.png");
+            }
         }
 
         public override string ToString()
