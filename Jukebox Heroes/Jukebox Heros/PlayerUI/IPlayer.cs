@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Jukebox_Heroes.Song;
 
 namespace Jukebox_Heroes.PlayerUI
 {

@@ -32,6 +32,7 @@ namespace Jukebox_Heroes
 
         public MainWindow() {
             InitializeComponent();
+            Console.WriteLine("Begin");
 
             songLibrary = new SongLibraryData(Song_Library_List_Box);
 
@@ -46,9 +47,12 @@ namespace Jukebox_Heroes
             Stop_Button.Click += player.Stop_Click;
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
-            
-            //Display album art
-            //Album_Art = playlist.getCurrentSong().albumArt;
+
+            Play_Button.Click += (s, e) =>
+            {
+                Console.WriteLine("Play");
+                Album_Art.Source = playlist.getCurrentSong().ConvertAlbumArtToWPFImage().Source;
+            };
         }
 
         private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {

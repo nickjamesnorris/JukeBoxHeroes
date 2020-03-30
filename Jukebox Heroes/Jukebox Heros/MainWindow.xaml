@@ -26,6 +26,6 @@
         <Button x:Name="Library_Remove_Song_Button" Content="Remove" HorizontalAlignment="Left" Margin="11,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
         <Button x:Name="Library_Upload_Song_Button" Content="Upload Music" HorizontalAlignment="Left" Margin="11,321,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
         <Button x:Name="Song_Library_Load_Button" Content="Load Library" Click="Song_Library_Load_Button_Click"  HorizontalAlignment="Left" Margin="25,374,0,0" VerticalAlignment="Top" Width="101"/>
-        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268"/>
+        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268" Source="/assets/CurrentAlbumArt.png"/>
     </Grid>
 </Window>

@@ -76,7 +76,10 @@ namespace Jukebox_Heroes.PlayerUI
         public void GetSong()
         {
             SongData song = playList.getCurrentSong();
-            if(song != null) mediaPlayer.Source = song.songUri;
+            if (song != null)
+            {
+                mediaPlayer.Source = song.songUri;
+            }
         }
 
         public void OnMediaEnded(object sender, EventArgs e)
