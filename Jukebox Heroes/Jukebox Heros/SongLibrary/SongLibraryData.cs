@@ -5,29 +5,29 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Windows.Controls;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace Jukebox_Heroes.SongLibrary
 {
     public class SongLibraryData : ISongLibraryData
     {
         private const string libraryFilePath = ".//data//library.json";
-        private List<SongData> _songList = new List<SongData>();
-        public List<SongData> songList {
-            get { return _songList; }
+        public ObservableCollection<SongData> songList {
+            get; set;
         }
         
         public SongLibraryData() {
+            songList = new ObservableCollection<SongData>();
         }
 
         public void addSong(SongData song)
         {
-            _songList.Add(song);
+            songList.Add(song);
         }
 
         public void removeSong(int songID)
         {
-            SongData song = _songList.Find(item => item.songID == songID);
-            _songList.Remove(song);
+            songList.Remove(getSong(songID));
         }
 
         public void saveLibrary() {
@@ -38,8 +38,6 @@ namespace Jukebox_Heroes.SongLibrary
             FileStream file = File.Create(libraryFilePath);
             file.Close();
             File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(this));
-            _songList.ForEach((item) => Console.WriteLine(item.title));
-            
         }
 
         public void loadLibrary() {
@@ -54,15 +52,18 @@ namespace Jukebox_Heroes.SongLibrary
                 MessageBox.Show("library.json could not be opened.");
                 return;
             }
-            _songList = library.songList;
+            songList = library.songList;
 
         }
 
         public SongData getSong(int songID) {
-            return _songList.Find(item => item.songID == songID); ;
+            foreach (SongData song in songList) {
+                if (song.songID == songID) return song;
+            }
+            return null;
         }
 
-        public List<SongData> getSongList() {
+        public ObservableCollection<SongData> getSongList() {
             return songList;
         }
 

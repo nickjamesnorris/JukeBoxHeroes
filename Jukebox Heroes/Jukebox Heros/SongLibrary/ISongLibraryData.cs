@@ -1,5 +1,6 @@
 ﻿using Jukebox_Heroes.Song;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Jukebox_Heroes
 {
@@ -10,7 +11,7 @@ namespace Jukebox_Heroes
         void saveLibrary();
         void loadLibrary();
         SongData getSong(int songID);
-        List<SongData> getSongList();
+        ObservableCollection<SongData> getSongList();
     }
 }
 

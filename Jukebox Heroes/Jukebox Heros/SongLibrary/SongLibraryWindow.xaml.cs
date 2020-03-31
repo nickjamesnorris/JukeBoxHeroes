@@ -1,6 +1,8 @@
 ﻿using Jukebox_Heroes.Song;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,19 +21,24 @@ namespace Jukebox_Heroes.SongLibrary
     {
         ISongLibraryData songLibrary;
         ISongUpload songUpload;
+        public ObservableCollection<SongData> songList {
+            get;
+            set;
+        }
 
         public SongLibraryWindow(ISongLibraryData songLibrary) {
             InitializeComponent();
 
             this.songLibrary = songLibrary;
+            songList = songLibrary.getSongList();
             this.songUpload = new SongUpload(songLibrary);
 
-            Song_Library_List_Box.ItemsSource = this.songLibrary.getSongList();
         }
 
         private void Song_Library_Upload_Click(object sender, RoutedEventArgs e) {
             songUpload.UploadSong();
-            Song_Library_List_Box.ItemsSource = this.songLibrary.getSongList();
+            Console.WriteLine(songList.ElementAt(songList.Count - 1));
+            Song_Library_List_View.ItemsSource = songList;
         }
     }
 }

@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="SongLibraryWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="Song_Library_List_Box" HorizontalAlignment="Left" Height="327" Margin="10,10,0,0" VerticalAlignment="Top" Width="772"/>
+        <ListView x:Name="Song_Library_List_View" HorizontalAlignment="Left" Height="327" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" Width="120" DisplayMemberBinding="{Binding title}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
         <Button x:Name="Song_Library_Upload" Content="Upload Song" Click="Song_Library_Upload_Click" HorizontalAlignment="Left" Margin="28,361,0,0" VerticalAlignment="Top" Width="88"/>
 
     </Grid>
