@@ -14,35 +14,20 @@ namespace Jukebox_Heroes.SongLibrary
         public List<SongData> songList {
             get { return _songList; }
         }
-        private ListBox libraryListBox;
-
-        public SongLibraryData(ListBox libraryListBox) {
-            this.libraryListBox = libraryListBox;
-        }
-
-        public void syncListAndListbox() {
-            libraryListBox.Items.Clear();
-            foreach (SongData song in _songList) {
-                libraryListBox.Items.Add(song);
-            }
+        
+        public SongLibraryData() {
 
         }
 
         public void addSong(SongData song)
         {
             _songList.Add(song);
-            syncListAndListbox();
         }
 
         public void removeSong(int songID)
         {
             SongData song = _songList.Find(item => item.songID == songID);
             _songList.Remove(song);
-            syncListAndListbox();
-        }
-
-        public void removeSelectedSong() {
-            if(libraryListBox.SelectedItem != null) removeSong(((SongData)libraryListBox.SelectedItem).songID);
         }
 
         public void saveLibrary() {
@@ -69,11 +54,10 @@ namespace Jukebox_Heroes.SongLibrary
             }
             _songList = library.songList;
 
-            syncListAndListbox();
         }
 
-        public SongData getSelectedSong() {
-            return (SongData) libraryListBox.SelectedItem;
+        public SongData getSong(int songID) {
+            return _songList.Find(item => item.songID == songID); ;
         }
 
     }
