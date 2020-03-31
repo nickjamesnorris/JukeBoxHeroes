@@ -29,14 +29,15 @@ namespace Jukebox_Heroes
         IPlayer player;
         IPlaylistData playlist;
         ISongLibraryData songLibrary;
+        Window songLibraryWindow;
 
         public MainWindow() {
             InitializeComponent();
 
-            songLibrary = new SongLibraryData(Song_Library_List_Box);
+            songLibrary = new SongLibraryData();
+            songLibraryWindow = new SongLibraryWindow(songLibrary);
 
             playlist = new PlaylistData(Song_List_Box, songLibrary);
-            SongUpload songUpload = new SongUpload(songLibrary);
 
             player = new Player(Media_Element, Song_Slider, Song_Time_Text, playlist);
             Play_Button.Click += player.Play_Click;
@@ -59,14 +60,12 @@ namespace Jukebox_Heroes
             player.slider_ValueChanged();
         }
 
-        private void Song_Library_Save_Button_Click(object sender, RoutedEventArgs e) {
-            SongLibraryWindow libraryWindow = new SongLibraryWindow();
-            libraryWindow.Show();
-            songLibrary.saveLibrary();
+        private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+            songLibraryWindow.Show();
         }
 
-        private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
-            playlist.addSongFromLibrary();
+        private void Remove_Song_From_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }

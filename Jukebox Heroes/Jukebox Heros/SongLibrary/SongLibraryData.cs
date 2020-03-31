@@ -17,7 +17,6 @@ namespace Jukebox_Heroes.SongLibrary
         }
         
         public SongLibraryData() {
-
         }
 
         public void addSong(SongData song)
@@ -61,6 +60,10 @@ namespace Jukebox_Heroes.SongLibrary
 
         public SongData getSong(int songID) {
             return _songList.Find(item => item.songID == songID); ;
+        }
+
+        public List<SongData> getSongList() {
+            return songList;
         }
 
     }

@@ -84,7 +84,7 @@
     <Compile Include="SongLibrary\SongLibraryWindow.xaml.cs">
       <DependentUpon>SongLibraryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Song\ISongUpload.cs" />
+    <Compile Include="SongLibrary\ISongUpload.cs" />
     <Compile Include="Song\SongData.cs" />
     <Compile Include="PlayerUI\Player.cs" />
     <Compile Include="SongLibrary\SongUpload.cs" />

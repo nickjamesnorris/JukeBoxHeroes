@@ -31,10 +31,6 @@ namespace Jukebox_Heroes.Playlist
 
         }
 
-        public void addSongFromLibrary() {
-            addSong(library.getSelectedSong());
-        }
-
         public void addSong(SongData song)
         {
             this.songData.Add(song);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jukebox_Heroes.Song;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,23 @@ using System.Windows.Shapes;
 
 namespace Jukebox_Heroes.SongLibrary
 {
-    /// <summary>
-    /// Interaction logic for SongLibraryWindow.xaml
-    /// </summary>
     public partial class SongLibraryWindow : Window
     {
-        public SongLibraryWindow() {
+        ISongLibraryData songLibrary;
+        ISongUpload songUpload;
+
+        public SongLibraryWindow(ISongLibraryData songLibrary) {
             InitializeComponent();
+
+            this.songLibrary = songLibrary;
+            this.songUpload = new SongUpload(songLibrary);
+
+            Song_Library_List_Box.ItemsSource = this.songLibrary.getSongList();
+        }
+
+        private void Song_Library_Upload_Click(object sender, RoutedEventArgs e) {
+            songUpload.UploadSong();
+            Song_Library_List_Box.ItemsSource = this.songLibrary.getSongList();
         }
     }
 }

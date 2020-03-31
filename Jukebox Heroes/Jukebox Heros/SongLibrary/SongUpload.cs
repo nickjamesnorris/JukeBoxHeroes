@@ -7,14 +7,14 @@ namespace Jukebox_Heroes.SongLibrary
 {
     public class SongUpload : ISongUpload
     {
-        ISongLibraryData songList;
+        ISongLibraryData songLibrary;
 
 
-        public SongUpload(ISongLibraryData songList) {
-            this.songList = songList;
+        public SongUpload(ISongLibraryData songLibrary) {
+            this.songLibrary = songLibrary;
         }
 
-        public void UploadSong(object sender, RoutedEventArgs e) {
+        public void UploadSong() {
             OpenFileDialog openFileDialog1 = new OpenFileDialog {
                 InitialDirectory = @"C:\",
                 Title = "Browse Music Files",
@@ -38,14 +38,9 @@ namespace Jukebox_Heroes.SongLibrary
                 foreach (string file in openFileDialog1.FileNames)
                 {
                     SongData song = new SongData(file);
-                    songList.addSong(song);
+                    songLibrary.addSong(song);
                 }
             }
-        }
-
-        public void Remove_Song_Click(object sender, RoutedEventArgs e)
-        {
-            songList.removeSelectedSong();
         }
 
     }
