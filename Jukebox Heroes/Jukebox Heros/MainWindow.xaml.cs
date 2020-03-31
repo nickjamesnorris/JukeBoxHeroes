@@ -1,5 +1,6 @@
 ﻿using Jukebox_Heroes.PlayerUI;
 using Jukebox_Heroes.Playlist;
+using Jukebox_Heroes.Song;
 using Jukebox_Heroes.SongLibrary;
 using Microsoft.Win32;
 using System;
@@ -65,7 +66,7 @@ namespace Jukebox_Heroes
         }
 
         private void Remove_Song_From_Playlist_Button_Click(object sender, RoutedEventArgs e) {
-
+            playlist.removeSong();
         }
     }
 }
