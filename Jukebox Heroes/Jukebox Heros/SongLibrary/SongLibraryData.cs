@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace Jukebox_Heroes.SongLibrary
 {
@@ -45,11 +46,13 @@ namespace Jukebox_Heroes.SongLibrary
         public void loadLibrary() {
             if (!File.Exists(libraryFilePath))
             {
+                MessageBox.Show("Need to first have a saved library in order to load one.");
                 return;
             }
             SongLibraryData library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
             if(library == null)
             {
+                MessageBox.Show("library.json could not be opened.");
                 return;
             }
             _songList = library.songList;
