@@ -1,5 +1,6 @@
 ﻿using Jukebox_Heroes.PlayerUI;
 using Jukebox_Heroes.Playlist;
+using Jukebox_Heroes.Song;
 using Jukebox_Heroes.SongLibrary;
 using Microsoft.Win32;
 using System;
@@ -26,19 +27,17 @@ namespace Jukebox_Heroes
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player player;
-        PlaylistData playlist;
-        SongLibraryData songLibrary;
+        IPlayer player;
+        IPlaylistData playlist;
+        ISongLibraryData songLibrary;
+        Window songLibraryWindow;
 
         public MainWindow() {
             InitializeComponent();
 
-            songLibrary = new SongLibraryData(Song_Library_List_Box);
+            songLibrary = new SongLibraryData();
 
             playlist = new PlaylistData(Song_List_Box, songLibrary);
-            SongUpload songUpload = new SongUpload(songLibrary);
-            Library_Remove_Song_Button.Click += songUpload.Remove_Song_Click;
-            Library_Upload_Song_Button.Click += songUpload.UploadSong;
 
             player = new Player(Media_Element, Song_Slider, Song_Time_Text, playlist);
             Play_Button.Click += player.Play_Click;
@@ -61,20 +60,13 @@ namespace Jukebox_Heroes
             player.slider_ValueChanged();
         }
 
-        private void Song_Library_Save_Button_Click(object sender, RoutedEventArgs e) {
-            songLibrary.saveLibrary();
-        }
-
         private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
-            playlist.addSongFromLibrary();
+            songLibraryWindow = new SongLibraryWindow(songLibrary, playlist);
+            songLibraryWindow.Show();
         }
 
         private void Remove_Song_From_Playlist_Button_Click(object sender, RoutedEventArgs e) {
             playlist.removeSong();
-        }
-
-        private void Song_Library_Load_Button_Click(object sender, RoutedEventArgs e) {
-            songLibrary.loadLibrary();
         }
     }
 }

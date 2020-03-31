@@ -1,16 +1,17 @@
 ﻿using Jukebox_Heroes.Song;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Jukebox_Heroes
 {
-    interface ISongLibraryData
+    public interface ISongLibraryData
     {
-        void syncListAndListbox();
         void addSong(SongData song);
         void removeSong(int songID);
-        void removeSelectedSong();
         void saveLibrary();
         void loadLibrary();
-        SongData getSelectedSong();
+        SongData getSong(int songID);
+        ObservableCollection<SongData> getSongList();
     }
 }
 

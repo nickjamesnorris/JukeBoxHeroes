@@ -4,45 +4,30 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using System.Windows.Controls;
+using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace Jukebox_Heroes.SongLibrary
 {
     public class SongLibraryData : ISongLibraryData
     {
         private const string libraryFilePath = ".//data//library.json";
-        private List<SongData> _songList = new List<SongData>();
-        public List<SongData> songList {
-            get { return _songList; }
+        public ObservableCollection<SongData> songList {
+            get; set;
         }
-        private ListBox libraryListBox;
-
-        public SongLibraryData(ListBox libraryListBox) {
-            this.libraryListBox = libraryListBox;
-        }
-
-        public void syncListAndListbox() {
-            libraryListBox.Items.Clear();
-            foreach (SongData song in _songList) {
-                libraryListBox.Items.Add(song);
-            }
-
+        
+        public SongLibraryData() {
+            songList = new ObservableCollection<SongData>();
         }
 
         public void addSong(SongData song)
         {
-            _songList.Add(song);
-            syncListAndListbox();
+            songList.Add(song);
         }
 
         public void removeSong(int songID)
         {
-            SongData song = _songList.Find(item => item.songID == songID);
-            _songList.Remove(song);
-            syncListAndListbox();
-        }
-
-        public void removeSelectedSong() {
-            if(libraryListBox.SelectedItem != null) removeSong(((SongData)libraryListBox.SelectedItem).songID);
+            songList.Remove(getSong(songID));
         }
 
         public void saveLibrary() {
@@ -53,27 +38,33 @@ namespace Jukebox_Heroes.SongLibrary
             FileStream file = File.Create(libraryFilePath);
             file.Close();
             File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(this));
-            _songList.ForEach((item) => Console.WriteLine(item.title));
-            
         }
 
         public void loadLibrary() {
             if (!File.Exists(libraryFilePath))
             {
+                MessageBox.Show("Need to first have a saved library in order to load one.");
                 return;
             }
             SongLibraryData library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
             if(library == null)
             {
+                MessageBox.Show("library.json could not be opened.");
                 return;
             }
-            _songList = library.songList;
+            songList = library.songList;
 
-            syncListAndListbox();
         }
 
-        public SongData getSelectedSong() {
-            return (SongData) libraryListBox.SelectedItem;
+        public SongData getSong(int songID) {
+            foreach (SongData song in songList) {
+                if (song.songID == songID) return song;
+            }
+            return null;
+        }
+
+        public ObservableCollection<SongData> getSongList() {
+            return songList;
         }
 
     }
