@@ -81,6 +81,9 @@
     <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
     <Compile Include="SongLibrary\SongLibraryData.cs" />
+    <Compile Include="SongLibrary\SongLibraryWindow.xaml.cs">
+      <DependentUpon>SongLibraryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Song\ISongUpload.cs" />
     <Compile Include="Song\SongData.cs" />
     <Compile Include="PlayerUI\Player.cs" />
@@ -97,6 +100,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SongLibrary\SongLibraryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

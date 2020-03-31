@@ -12,10 +12,10 @@ namespace Jukebox_Heroes.Playlist
     {
         ListBox songsListBox;
         List<SongData> songData = new List<SongData>();
-        SongLibraryData library;
+        ISongLibraryData library;
         int currentSongIndex = 0;
 
-        public PlaylistData(ListBox songsListBox, SongLibraryData library)
+        public PlaylistData(ListBox songsListBox, ISongLibraryData library)
         {
             this.songsListBox = songsListBox;
             this.library = library;

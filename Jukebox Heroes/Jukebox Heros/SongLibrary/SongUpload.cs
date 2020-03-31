@@ -7,10 +7,10 @@ namespace Jukebox_Heroes.SongLibrary
 {
     public class SongUpload : ISongUpload
     {
-        SongLibraryData songList;
+        ISongLibraryData songList;
 
 
-        public SongUpload(SongLibraryData songList) {
+        public SongUpload(ISongLibraryData songList) {
             this.songList = songList;
         }
 

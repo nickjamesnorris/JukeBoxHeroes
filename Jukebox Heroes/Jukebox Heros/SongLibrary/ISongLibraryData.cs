@@ -2,7 +2,7 @@
 
 namespace Jukebox_Heroes
 {
-    interface ISongLibraryData
+    public interface ISongLibraryData
     {
         void syncListAndListbox();
         void addSong(SongData song);

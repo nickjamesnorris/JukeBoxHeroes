@@ -26,9 +26,9 @@ namespace Jukebox_Heroes
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player player;
-        PlaylistData playlist;
-        SongLibraryData songLibrary;
+        IPlayer player;
+        IPlaylistData playlist;
+        ISongLibraryData songLibrary;
 
         public MainWindow() {
             InitializeComponent();
@@ -37,8 +37,6 @@ namespace Jukebox_Heroes
 
             playlist = new PlaylistData(Song_List_Box, songLibrary);
             SongUpload songUpload = new SongUpload(songLibrary);
-            Library_Remove_Song_Button.Click += songUpload.Remove_Song_Click;
-            Library_Upload_Song_Button.Click += songUpload.UploadSong;
 
             player = new Player(Media_Element, Song_Slider, Song_Time_Text, playlist);
             Play_Button.Click += player.Play_Click;
@@ -62,19 +60,13 @@ namespace Jukebox_Heroes
         }
 
         private void Song_Library_Save_Button_Click(object sender, RoutedEventArgs e) {
+            SongLibraryWindow libraryWindow = new SongLibraryWindow();
+            libraryWindow.Show();
             songLibrary.saveLibrary();
         }
 
         private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
             playlist.addSongFromLibrary();
-        }
-
-        private void Remove_Song_From_Playlist_Button_Click(object sender, RoutedEventArgs e) {
-            playlist.removeSong();
-        }
-
-        private void Song_Library_Load_Button_Click(object sender, RoutedEventArgs e) {
-            songLibrary.loadLibrary();
         }
     }
 }

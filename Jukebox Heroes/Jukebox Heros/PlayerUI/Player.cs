@@ -13,9 +13,9 @@ namespace Jukebox_Heroes.PlayerUI
         private TextBlock timeText;
         private bool mediaPlayerIsPlaying = false, userIsDraggingSlider = false;
         private Slider slider;
-        private PlaylistData playList;
+        private IPlaylistData playList;
 
-        public Player(MediaElement mediaPlayer, Slider slider, TextBlock timeText, PlaylistData playList)
+        public Player(MediaElement mediaPlayer, Slider slider, TextBlock timeText, IPlaylistData playList)
         {
             this.mediaPlayer = mediaPlayer;
             this.slider = slider;
