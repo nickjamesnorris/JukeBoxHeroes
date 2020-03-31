@@ -27,7 +27,7 @@ namespace Jukebox_Heroes.Song
             this.album = file.Tag.Album;
             this.year = file.Tag.Year;
             this.genres = file.Tag.Genres;
-            this.duration = file.Properties.Duration;
+            this.duration = new TimeSpan(file.Properties.Duration.Hours, file.Properties.Duration.Minutes, file.Properties.Duration.Seconds);
 
             if (this.title == null)
             {

@@ -33,12 +33,12 @@ namespace Jukebox_Heroes.SongLibrary
             songList = songLibrary.getSongList();
             this.songUpload = new SongUpload(songLibrary);
 
+            Song_Library_List_View.ItemsSource = songList;
         }
 
         private void Song_Library_Upload_Click(object sender, RoutedEventArgs e) {
             songUpload.UploadSong();
             Console.WriteLine(songList.ElementAt(songList.Count - 1));
-            Song_Library_List_View.ItemsSource = songList;
         }
     }
 }

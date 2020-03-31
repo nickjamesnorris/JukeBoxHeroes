@@ -10,7 +10,11 @@
         <ListView x:Name="Song_Library_List_View" HorizontalAlignment="Left" Height="327" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" Width="120" DisplayMemberBinding="{Binding title}" />
+                    <GridViewColumn Header="Title"  DisplayMemberBinding="{Binding title}" />
+                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding album}" />
+                    <GridViewColumn Header="Artist" DisplayMemberBinding="{Binding artist}" />
+                    <GridViewColumn Header="Length" DisplayMemberBinding="{Binding duration}" />
+
                 </GridView>
             </ListView.View>
         </ListView>
