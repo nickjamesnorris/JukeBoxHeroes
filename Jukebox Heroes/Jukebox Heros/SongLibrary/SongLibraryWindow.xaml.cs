@@ -21,24 +21,51 @@ namespace Jukebox_Heroes.SongLibrary
     {
         ISongLibraryData songLibrary;
         ISongUpload songUpload;
+        IPlaylistData playlist;
         public ObservableCollection<SongData> songList {
             get;
             set;
         }
 
-        public SongLibraryWindow(ISongLibraryData songLibrary) {
+        public SongLibraryWindow(ISongLibraryData songLibrary, IPlaylistData playlist) {
             InitializeComponent();
 
             this.songLibrary = songLibrary;
-            songList = songLibrary.getSongList();
             this.songUpload = new SongUpload(songLibrary);
+            this.playlist = playlist;
 
+            syncUI();
+
+        }
+
+        private void syncUI() {
+            songList = songLibrary.getSongList();
             Song_Library_List_View.ItemsSource = songList;
         }
 
         private void Song_Library_Upload_Click(object sender, RoutedEventArgs e) {
             songUpload.UploadSong();
-            Console.WriteLine(songList.ElementAt(songList.Count - 1));
+        }
+
+        private void Song_Library_Save_Click(object sender, RoutedEventArgs e) {
+            songLibrary.saveLibrary();
+        }
+
+        private void Song_Library_Load_Click(object sender, RoutedEventArgs e) {
+            songLibrary.loadLibrary();
+            syncUI();
+        }
+
+        private void Song_Library_Add_Song_To_Playlist_Click(object sender, RoutedEventArgs e) {
+            SongData song = (SongData) Song_Library_List_View.SelectedItem;
+            if (song != null) {
+                playlist.addSong(song);
+            }
+        }
+
+        private void Song_Library_Remove_Click(object sender, RoutedEventArgs e) {
+            SongData song = (SongData) Song_Library_List_View.SelectedItem;
+            if(song != null) songLibrary.removeSong(song.songID);
         }
     }
 }

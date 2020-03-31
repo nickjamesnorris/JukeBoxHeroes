@@ -35,7 +35,6 @@ namespace Jukebox_Heroes
             InitializeComponent();
 
             songLibrary = new SongLibraryData();
-            songLibraryWindow = new SongLibraryWindow(songLibrary);
 
             playlist = new PlaylistData(Song_List_Box, songLibrary);
 
@@ -45,6 +44,8 @@ namespace Jukebox_Heroes
             Stop_Button.Click += player.Stop_Click;
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
+
+            songLibraryWindow = new SongLibraryWindow(songLibrary, playlist);
 
         }
 
