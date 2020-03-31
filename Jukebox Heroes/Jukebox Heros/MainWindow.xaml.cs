@@ -45,8 +45,6 @@ namespace Jukebox_Heroes
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
 
-            songLibraryWindow = new SongLibraryWindow(songLibrary, playlist);
-
         }
 
         private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {
@@ -62,6 +60,7 @@ namespace Jukebox_Heroes
         }
 
         private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+            songLibraryWindow = new SongLibraryWindow(songLibrary, playlist);
             songLibraryWindow.Show();
         }
 
