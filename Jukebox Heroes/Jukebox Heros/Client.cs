@@ -12,9 +12,9 @@ namespace Jukebox_Heroes
     {
         public Client()
         {
-            ExecuteClient();
+            //ExecuteClient(portNum);
         }
-        private void ExecuteClient()
+        public void ExecuteClient(int portNum)
         {
 
             try
@@ -26,7 +26,7 @@ namespace Jukebox_Heroes
                 // computer. 
                 IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
                 IPAddress ipAddr = ipHost.AddressList[0];
-                IPEndPoint localEndPoint = new IPEndPoint(ipAddr, 11111);
+                IPEndPoint localEndPoint = new IPEndPoint(ipAddr, portNum);
 
                 // Creation TCP/IP Socket using  
                 // Socket Class Costructor 

@@ -81,6 +81,7 @@
     <Compile Include="Server\ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Server\StateObject.cs" />
     <Compile Include="SongLibrary\ISongLibraryData.cs" />
     <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />

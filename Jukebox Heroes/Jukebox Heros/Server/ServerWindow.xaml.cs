@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,103 +22,58 @@ namespace Jukebox_Heroes.Server
     /// </summary>
     public partial class ServerWindow : Window
     {
-        public Window MainWindow { get; set; }
-        Socket sender;
-        IPEndPoint localEndPoint;
-        IPAddress ipAddr;
-        IPHostEntry ipHost;
+        public int portNum;
+        public static ManualResetEvent allDone = new ManualResetEvent(false);
 
         public ServerWindow()
         {
-            Console.WriteLine("Hey Nick aka BDN");
             InitializeComponent();
-            
+            this.portNum = 1000;
+            string hostName = Dns.GetHostName();
+            Server_IP_txtbox.Text = Dns.GetHostByName(hostName).AddressList[0].ToString();
+            Server_IP_txtbox.IsEnabled = false;
         }
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
         {
-            ExecuteServer();
-            Client client = new Client();
-        }
-
-        public static void ExecuteServer()
-        {
-            IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddr = ipHost.AddressList[0];
-            IPEndPoint localEndPoint = new IPEndPoint(ipAddr, 11111);
-
-            // Creation TCP/IP Socket using  
-            // Socket Class Costructor 
-            Socket listener = new Socket(ipAddr.AddressFamily,
-                         SocketType.Stream, ProtocolType.Tcp);
-
-            try
+            setPortNum(int.Parse(Port_Number_txtbox.Text));
+            if (Server_Start_btn.IsEnabled == false)
             {
-
-                // Using Bind() method we associate a 
-                // network address to the Server Socket 
-                // All client that will connect to this  
-                // Server Socket must know this network 
-                // Address 
-                listener.Bind(localEndPoint);
-
-                // Using Listen() method we create  
-                // the Client list that will want 
-                // to connect to Server 
-                listener.Listen(10);
-
-                while (true)
-                {
-
-                    Console.WriteLine("Waiting connection ... ");
-
-                    // Suspend while waiting for 
-                    // incoming connection Using  
-                    // Accept() method the server  
-                    // will accept connection of client 
-                    Socket clientSocket = listener.Accept();
-
-                    // Data buffer 
-                    byte[] bytes = new Byte[1024];
-                    string data = null;
-
-                    while (true)
-                    {
-
-                        int numByte = clientSocket.Receive(bytes);
-
-                        data += Encoding.ASCII.GetString(bytes,
-                                                   0, numByte);
-
-                        if (data.IndexOf("<EOF>") > -1)
-                            break;
-                    }
-
-                    Console.WriteLine("Text received -> {0} ", data);
-                    byte[] message = Encoding.ASCII.GetBytes("Test Server");
-                    
-                    // Send a message to Client  
-                    // using Send() method 
-                    clientSocket.Send(message);
-                    //Host_Name_txtbox.Text = message;
-                    // Close client Socket using the 
-                    // Close() method. After closing, 
-                    // we can use the closed Socket  
-                    // for a new Client Connection 
-                    clientSocket.Shutdown(SocketShutdown.Both);
-                    clientSocket.Close();
-                }
+                Client client = new Client();
+                client.ExecuteClient(this.portNum);
             }
-
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.ToString());
+                Server_Start_btn_Click(sender, e);
+                Client client = new Client();
+                client.ExecuteClient(this.portNum);
             }
         }
 
         private void Host_Name_txtbox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
+        }
 
+        private void Server_IP_txtbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private async void Server_Start_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Server_Start_btn.IsEnabled = false;
+            Listener listen = new Listener();
+            await Task.Run(() =>
+            {
+                listen.ExecuteServer(this.portNum);
+            });
+            Server_Start_btn.IsEnabled = false;
+            Button_Host.IsEnabled = true;
+        }
+        private void setPortNum(int num)
+        {
+            this.portNum = num;
         }
     }
 }
