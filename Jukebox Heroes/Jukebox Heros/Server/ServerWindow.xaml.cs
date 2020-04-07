@@ -36,7 +36,6 @@ namespace Jukebox_Heroes.Server
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
         {
-            setPortNum(int.Parse(Port_Number_txtbox.Text));
             if (Server_Start_btn.IsEnabled == false)
             {
                 Client client = new Client();
@@ -44,6 +43,7 @@ namespace Jukebox_Heroes.Server
             }
             else
             {
+                setPortNum(int.Parse(Port_Number_txtbox.Text));
                 Server_Start_btn_Click(sender, e);
                 Client client = new Client();
                 client.ExecuteClient(this.portNum);
@@ -63,6 +63,9 @@ namespace Jukebox_Heroes.Server
         private async void Server_Start_btn_Click(object sender, RoutedEventArgs e)
         {
             Server_Start_btn.IsEnabled = false;
+            Port_Number_txtbox.Text = "1000";
+            Port_Number_txtbox.IsEnabled = false;
+
             Listener listen = new Listener();
             await Task.Run(() =>
             {
