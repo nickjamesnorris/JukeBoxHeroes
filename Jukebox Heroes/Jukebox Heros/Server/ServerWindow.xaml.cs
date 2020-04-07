@@ -43,7 +43,14 @@ namespace Jukebox_Heroes.Server
             }
             else
             {
-                setPortNum(int.Parse(Port_Number_txtbox.Text));
+                if (String.IsNullOrEmpty(Port_Number_txtbox.Text))
+                {
+                    setPortNum(8080);
+                }
+                else
+                {
+                    setPortNum(int.Parse(Port_Number_txtbox.Text));
+                }
                 Server_Start_btn_Click(sender, e);
                 Client client = new Client();
                 client.ExecuteClient(this.portNum);
@@ -63,7 +70,7 @@ namespace Jukebox_Heroes.Server
         private async void Server_Start_btn_Click(object sender, RoutedEventArgs e)
         {
             Server_Start_btn.IsEnabled = false;
-            Port_Number_txtbox.Text = "1000";
+            Port_Number_txtbox.Text = this.portNum.ToString();
             Port_Number_txtbox.IsEnabled = false;
 
             Listener listen = new Listener();
