@@ -82,6 +82,9 @@
       <DependentUpon>HostWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Server\StateObject.cs" />
+    <Compile Include="Server\Join.xaml.cs">
+      <DependentUpon>Join.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SongLibrary\ISongLibraryData.cs" />
     <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
@@ -106,6 +109,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Server\HostWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Server\Join.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +159,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Server\d7b01e1846494f4557f107996843b4ee.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

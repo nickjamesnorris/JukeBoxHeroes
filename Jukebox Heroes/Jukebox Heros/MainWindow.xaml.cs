@@ -35,6 +35,7 @@ namespace Jukebox_Heroes
         ISongLibraryData songLibrary;
         Window songLibraryWindow;
         Window serverWindow;
+        Window joinWindow;
 
         public MainWindow() {
             InitializeComponent();
@@ -79,7 +80,11 @@ namespace Jukebox_Heroes
             serverWindow.Show();
         }
 
-        
+        private void Join_Button_Click(object sender, RoutedEventArgs e)
+        {
+            joinWindow = new Join();
+            joinWindow.Show();
+        }
     }
 }
 
