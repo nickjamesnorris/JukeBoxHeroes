@@ -73,7 +73,7 @@ namespace Jukebox_Heroes
             playlist.removeSong();
         }
 
-        private void Connect_Button_Click(object sender, RoutedEventArgs e)
+        private void Host_Button_Click(object sender, RoutedEventArgs e)
         {
             serverWindow = new ServerWindow();
             serverWindow.Show();

@@ -36,40 +36,25 @@ namespace Jukebox_Heroes.Server
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
         {
-            if (Server_Start_btn.IsEnabled == false)
+            
+            if (String.IsNullOrEmpty(Port_Number_txtbox.Text))
             {
-                Client client = new Client();
-                client.ExecuteClient(this.portNum);
+                setPortNum(8080);
             }
             else
             {
-                if (String.IsNullOrEmpty(Port_Number_txtbox.Text))
-                {
-                    setPortNum(8080);
-                }
-                else
-                {
-                    setPortNum(int.Parse(Port_Number_txtbox.Text));
-                }
-                Server_Start_btn_Click(sender, e);
-                Client client = new Client();
-                client.ExecuteClient(this.portNum);
+                setPortNum(int.Parse(Port_Number_txtbox.Text));
             }
+            Server_Start();
+
+            Client client = new Client();
+            client.ExecuteClient(this.portNum);
+            Close();
         }
 
-        private void Host_Name_txtbox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
 
-        private void Server_IP_txtbox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void Server_Start()
         {
-            
-        }
-
-        private async void Server_Start_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Server_Start_btn.IsEnabled = false;
             Port_Number_txtbox.Text = this.portNum.ToString();
             Port_Number_txtbox.IsEnabled = false;
 
@@ -78,7 +63,7 @@ namespace Jukebox_Heroes.Server
             {
                 listen.ExecuteServer(this.portNum);
             });
-            Server_Start_btn.IsEnabled = false;
+
             Button_Host.IsEnabled = true;
         }
         private void setPortNum(int num)

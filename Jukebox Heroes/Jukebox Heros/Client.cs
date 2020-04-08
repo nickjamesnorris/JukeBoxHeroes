@@ -16,7 +16,6 @@ namespace Jukebox_Heroes
         }
         public void ExecuteClient(int portNum)
         {
-
             try
             {
 
@@ -25,6 +24,7 @@ namespace Jukebox_Heroes
                 // uses port 11111 on the local  
                 // computer. 
                 IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
+
                 IPAddress ipAddr = ipHost.AddressList[0];
                 IPEndPoint localEndPoint = new IPEndPoint(ipAddr, portNum);
 
