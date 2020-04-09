@@ -27,5 +27,6 @@
         <Button x:Name="Library_Upload_Song_Button" Content="Upload Music" HorizontalAlignment="Left" Margin="11,321,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
         <Button x:Name="Song_Library_Load_Button" Content="Load Library" Click="Song_Library_Load_Button_Click"  HorizontalAlignment="Left" Margin="25,374,0,0" VerticalAlignment="Top" Width="101"/>
         <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268" Source="/assets/CurrentAlbumArt.png"/>
+        <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="418,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="268" Width="233" FontSize="18"/>
     </Grid>
 </Window>

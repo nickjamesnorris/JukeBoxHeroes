@@ -28,7 +28,7 @@ namespace Jukebox_Heroes.Song
             TagLib.File file = TagLib.File.Create(filePath);
 
             this.title = file.Tag.Title;
-            this.artist = file.Tag.FirstAlbumArtist;
+            this.artist = file.Tag.FirstArtist;
             this.album = file.Tag.Album;
             this.year = file.Tag.Year;
             this.genres = file.Tag.Genres;
@@ -39,7 +39,20 @@ namespace Jukebox_Heroes.Song
                 this.title = filePath;
             }
 
-            this.songID = nextSongID++;
+            if (this.artist == null)
+            {
+                this.artist = "Unknown Artist";
+            }
+
+            if (this.album == null)
+            {
+                this.album = "Unknown Album";
+            }
+
+            if (this.genres == null)
+            {
+                this.genres = new string[1] { "Unknown Genres" };
+            }
 
             if (file.Tag.Pictures.Length > 0)
             {
@@ -50,13 +63,15 @@ namespace Jukebox_Heroes.Song
             {
                 try
                 {
-                    this.albumArt = Image.FromFile("..\\data\\AlbumArtPlaceholder.png");
+                    this.albumArt = Image.FromFile(".//data//AlbumArtPlaceholder.png");
                 }
                 catch
                 {
                     Console.WriteLine("File not found");
                 }
             }
+
+            this.songID = nextSongID++;
         }
 
         public System.Windows.Controls.Image ConvertAlbumArtToWPFImage()
