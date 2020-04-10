@@ -48,7 +48,7 @@ namespace Jukebox_Heroes.Server
             Server_Start();
 
             Client client = new Client();
-            client.ExecuteClient(this.portNum);
+            client.StartClient(this.portNum);
             Close();
         }
 

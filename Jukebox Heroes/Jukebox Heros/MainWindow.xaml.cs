@@ -85,6 +85,8 @@ namespace Jukebox_Heroes
             joinWindow = new Join();
             joinWindow.Show();
         }
+
+        public IPlaylistData getPlayList() => playlist;
     }
 }
 
