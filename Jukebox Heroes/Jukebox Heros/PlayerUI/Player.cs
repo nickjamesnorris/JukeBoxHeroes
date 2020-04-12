@@ -14,13 +14,17 @@ namespace Jukebox_Heroes.PlayerUI
         private bool mediaPlayerIsPlaying = false, userIsDraggingSlider = false;
         private Slider slider;
         private IPlaylistData playList;
+        private Image albumArt;
+        private TextBlock songInfo;
 
-        public Player(MediaElement mediaPlayer, Slider slider, TextBlock timeText, IPlaylistData playList)
+        public Player(MediaElement mediaPlayer, Slider slider, TextBlock timeText, IPlaylistData playList, Image albumArt, TextBlock songInfo)
         {
             this.mediaPlayer = mediaPlayer;
             this.slider = slider;
             this.timeText = timeText;
             this.playList = playList;
+            this.albumArt = albumArt;
+            this.songInfo = songInfo;
             
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -76,7 +80,11 @@ namespace Jukebox_Heroes.PlayerUI
         public void GetSong()
         {
             SongData song = playList.getCurrentSong();
-            if(song != null) mediaPlayer.Source = song.songUri;
+            if (song != null)
+            {
+                mediaPlayer.Source = song.songUri;
+            }
+            loadSongInfoInWindow(albumArt, songInfo);
         }
 
         public void OnMediaEnded(object sender, EventArgs e)
@@ -96,6 +104,60 @@ namespace Jukebox_Heroes.PlayerUI
 
         public void slider_ValueChanged() {
             timeText.Text = TimeSpan.FromSeconds(slider.Value).ToString(@"hh\:mm\:ss");
+        }
+
+        public void loadSongInfoInWindow(Image albumArt, TextBlock songInfo)
+        {
+            //String title;
+            //String artist;
+            //String album;
+            //String genre;
+            //String year;
+
+            ////Title (already have checked for null in song class)
+            //title = playList.getCurrentSong().title;
+
+            ////Artist
+            //if (playList.getCurrentSong().artist == null)
+            //{
+            //    artist = "Unknown Artist";
+            //}
+            //else
+            //{
+            //    artist = playList.getCurrentSong().artist;
+            //}
+
+            ////Album
+            //if (playList.getCurrentSong().album == null)
+            //{
+            //    album = "Unknown Album";
+            //}
+            //else
+            //{
+            //    album = playList.getCurrentSong().album;
+            //}
+
+            SongData currentSong = playList.getCurrentSong();
+            String songInfoString;
+
+            albumArt.Source = currentSong.ConvertAlbumArtToWPFImage().Source;
+
+            songInfoString = currentSong.title + "\n" + currentSong.artist + "\n" +
+                currentSong.album + "\n";
+            for (int i = 0; i < currentSong.genres.Length; i++)
+            {
+                if (i == 0)
+                {
+                    songInfoString += currentSong.genres[i];
+                }
+                else
+                {
+                    songInfoString += ", " + currentSong.genres[i];
+                }
+            }
+            songInfoString += "\n" + currentSong.year;
+
+            songInfo.Text = songInfoString;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using Jukebox_Heroes.Song;
 
 namespace Jukebox_Heroes.PlayerUI
 {
@@ -17,5 +19,6 @@ namespace Jukebox_Heroes.PlayerUI
         void slider_DragStarted();
         void slider_DragCompleted();
         void slider_ValueChanged();
+        void loadSongInfoInWindow(Image albumArt, TextBlock songInfo);
 }
 }

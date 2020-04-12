@@ -39,13 +39,12 @@ namespace Jukebox_Heroes
 
             playlist = new PlaylistData(Song_List_Box, songLibrary);
 
-            player = new Player(Media_Element, Song_Slider, Song_Time_Text, playlist);
+            player = new Player(Media_Element, Song_Slider, Song_Time_Text, playlist, Album_Art, Song_Info);
             Play_Button.Click += player.Play_Click;
             Pause_Button.Click += player.Pause_Click;
             Stop_Button.Click += player.Stop_Click;
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
-
         }
 
         private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {
