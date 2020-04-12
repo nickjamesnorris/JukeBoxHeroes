@@ -12,10 +12,10 @@ namespace Jukebox_Heroes.Playlist
     {
         ListBox songsListBox;
         List<SongData> songData = new List<SongData>();
-        SongLibraryData library;
+        ISongLibraryData library;
         int currentSongIndex = 0;
 
-        public PlaylistData(ListBox songsListBox, SongLibraryData library)
+        public PlaylistData(ListBox songsListBox, ISongLibraryData library)
         {
             this.songsListBox = songsListBox;
             this.library = library;
@@ -29,10 +29,6 @@ namespace Jukebox_Heroes.Playlist
 
             if (currentSongIndex >= songData.Count) currentSongIndex = songData.Count - 1;
 
-        }
-
-        public void addSongFromLibrary() {
-            addSong(library.getSelectedSong());
         }
 
         public void addSong(SongData song)

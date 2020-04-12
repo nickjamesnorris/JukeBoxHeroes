@@ -1,0 +1,29 @@
+﻿<Window x:Class="Jukebox_Heroes.SongLibrary.SongLibraryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jukebox_Heroes.SongLibrary"
+        mc:Ignorable="d"
+        Title="SongLibraryWindow" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="Song_Library_List_View" HorizontalAlignment="Left" Height="327" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title"  DisplayMemberBinding="{Binding title}" />
+                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding album}" />
+                    <GridViewColumn Header="Artist" DisplayMemberBinding="{Binding artist}" />
+                    <GridViewColumn Header="Length" DisplayMemberBinding="{Binding duration}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="Song_Library_Upload" Content="Upload Song" Click="Song_Library_Upload_Click" HorizontalAlignment="Left" Margin="230,363,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="Song_Library_Save" Content="Save Library" Click="Song_Library_Save_Click" HorizontalAlignment="Left" Margin="119,363,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="Song_Library_Load" Content="Load Library" Click="Song_Library_Load_Click" HorizontalAlignment="Left" Margin="10,363,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="Song_Library_Add_Song_To_Playlist" Content="Add To Playlist" Click="Song_Library_Add_Song_To_Playlist_Click" HorizontalAlignment="Left" Margin="674,363,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="Song_Library_Remove" Content="Remove Song" Click="Song_Library_Remove_Click" HorizontalAlignment="Left" Margin="341,363,0,0" VerticalAlignment="Top" Width="88"/>
+
+    </Grid>
+</Window>

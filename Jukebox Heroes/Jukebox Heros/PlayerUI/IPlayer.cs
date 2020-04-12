@@ -5,7 +5,7 @@ using Jukebox_Heroes.Song;
 
 namespace Jukebox_Heroes.PlayerUI
 {
-    interface IPlayer
+    public interface IPlayer
     {
         void tick(object sender, EventArgs e);
         void Play_Click(object sender, RoutedEventArgs e);
