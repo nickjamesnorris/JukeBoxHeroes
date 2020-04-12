@@ -20,10 +20,6 @@
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
-        <Label x:Name="Song_Library_Label" Content="Song Library" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,7,0,0" FontSize="14"/>
-        <Button x:Name="Library_Remove_Song_Button" Content="Remove" HorizontalAlignment="Left" Margin="11,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
-        <Button x:Name="Library_Upload_Song_Button" Content="Upload Music" HorizontalAlignment="Left" Margin="11,321,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
-        <Button x:Name="Song_Library_Load_Button" Content="Load Library" Click="Song_Library_Load_Button_Click"  HorizontalAlignment="Left" Margin="25,374,0,0" VerticalAlignment="Top" Width="101"/>
         <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268" Source="/assets/CurrentAlbumArt.png"/>
         <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="418,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="268" Width="233" FontSize="18"/>
     </Grid>
