@@ -35,9 +35,16 @@ namespace Jukebox_Heroes.SongLibrary
                 System.IO.Directory.CreateDirectory(".//data");
                 
             }
+            
+            List<string> songFilePathList = new List<string>();
+
+            foreach(SongData song in songList) {
+                songFilePathList.Add(song.filePath);
+            }
+
             FileStream file = File.Create(libraryFilePath);
             file.Close();
-            File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(this));
+            File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(songFilePathList));
         }
 
         public void loadLibrary() {
@@ -46,13 +53,18 @@ namespace Jukebox_Heroes.SongLibrary
                 MessageBox.Show("Need to first have a saved library in order to load one.");
                 return;
             }
-            SongLibraryData library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
+            List<string> library = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(libraryFilePath));
             if(library == null)
             {
                 MessageBox.Show("library.json could not be opened.");
                 return;
             }
-            songList = library.songList;
+
+            songList.Clear();
+
+            foreach (string filePath in library) {
+                songList.Add(new SongData(filePath));
+            }
 
         }
 

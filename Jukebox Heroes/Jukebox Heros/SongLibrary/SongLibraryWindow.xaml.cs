@@ -57,8 +57,7 @@ namespace Jukebox_Heroes.SongLibrary
         }
 
         private void Song_Library_Add_Song_To_Playlist_Click(object sender, RoutedEventArgs e) {
-            SongData song = (SongData) Song_Library_List_View.SelectedItem;
-            if (song != null) {
+            foreach(SongData song in Song_Library_List_View.SelectedItems) {
                 playlist.addSong(song);
             }
         }
