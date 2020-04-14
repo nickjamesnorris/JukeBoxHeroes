@@ -56,7 +56,9 @@ namespace Jukebox_Heroes.Playlist
             {
                 currentSongIndex++;
             }
-            
+
+            songsListBox.SelectedIndex = currentSongIndex;
+
         }
 
         public void previousSong()
@@ -64,16 +66,20 @@ namespace Jukebox_Heroes.Playlist
             if(currentSongIndex != 0)
             {
                 currentSongIndex--;
+                
             }
             else
             {
                 currentSongIndex = songData.Count - 1;
             }
+
+            songsListBox.SelectedIndex = currentSongIndex;
         }
 
         public SongData getCurrentSong()
         {
             if (songData.Count == 0) return null;
+            currentSongIndex = songsListBox.SelectedIndex;
             return songData.ElementAt(currentSongIndex);
         }
 

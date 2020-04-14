@@ -85,6 +85,7 @@ namespace Jukebox_Heroes.PlayerUI
                 mediaPlayer.Source = song.songUri;
             }
             loadSongInfoInWindow(albumArt, songInfo);
+            mediaPlayer.Position = new TimeSpan(0);
         }
 
         public void OnMediaEnded(object sender, EventArgs e)
