@@ -22,6 +22,12 @@ namespace Jukebox_Heroes.SongLibrary
 
         public void addSong(SongData song)
         {
+            foreach (SongData existingSong in songList) {
+                if (existingSong.filePath == song.filePath) {
+                    MessageBox.Show(song.title + " is already in your library");
+                    return;
+                }
+            }
             songList.Add(song);
         }
 
