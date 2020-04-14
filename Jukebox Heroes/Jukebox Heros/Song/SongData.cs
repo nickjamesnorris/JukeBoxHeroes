@@ -33,7 +33,7 @@ namespace Jukebox_Heroes.Song
 
             if (this.title == null)
             {
-                this.title = filePath;
+                this.title = System.IO.Path.GetFileNameWithoutExtension(filePath);
             }
 
             if (this.artist == null)
