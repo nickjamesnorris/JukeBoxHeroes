@@ -1,4 +1,4 @@
-﻿<Window x:Class="Jukebox_Heroes.MainWindow"
+﻿<Window x:Name="Main_Player" x:Class="Jukebox_Heroes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,8 +20,7 @@
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
-        <Button x:Name="Host_Button" Content="Host" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="30,327,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="Host_Button" Content="Host" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="30,327,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible"/>
         <Button x:Name="Join_Button" Content="Join" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="29,294,0,0" Click="Join_Button_Click"/>
-        <ListBox HorizontalAlignment="Left" Height="226" Margin="29,36,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

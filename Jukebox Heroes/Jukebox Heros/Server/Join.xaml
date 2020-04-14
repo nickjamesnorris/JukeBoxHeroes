@@ -10,8 +10,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Server_IP" HorizontalAlignment="Left" Height="23" Margin="50,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Port_Number" HorizontalAlignment="Left" Height="23" Margin="50,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Server_IP" HorizontalAlignment="Left" Height="23" Margin="50,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Port_Number" HorizontalAlignment="Left" Height="23" Margin="47,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Join_Button" Content="Join" Click="Join_Button_Click" HorizontalAlignment="Left" Margin="50,172,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="Sever_Label" Content="Server IP" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="Port_Label" Content="Port Number" HorizontalAlignment="Left" Margin="47,97,0,0" VerticalAlignment="Top" Foreground="White"/>

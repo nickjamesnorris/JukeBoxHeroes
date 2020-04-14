@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jukebox_Heroes.Playlist;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,14 +25,16 @@ namespace Jukebox_Heroes.Server
     {
         public int portNum;
         public static ManualResetEvent allDone = new ManualResetEvent(false);
+        public ListBox play;
 
-        public ServerWindow()
+        public ServerWindow(ListBox playlist)
         {
             InitializeComponent();
             this.portNum = 1000;
             string hostName = Dns.GetHostName();
             Server_IP_txtbox.Text = Dns.GetHostByName(hostName).AddressList[0].ToString();
             Server_IP_txtbox.IsEnabled = false;
+            this.play = playlist;
         }
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
@@ -52,19 +55,17 @@ namespace Jukebox_Heroes.Server
             Close();
         }
 
-
         private async void Server_Start()
         {
             Port_Number_txtbox.Text = this.portNum.ToString();
             Port_Number_txtbox.IsEnabled = false;
+            Listener listen = new Listener(this.play);
 
-            Listener listen = new Listener();
             await Task.Run(() =>
             {
-                listen.ExecuteServer(this.portNum);
+                listen.ExecuteServer(portNum);
             });
 
-            Button_Host.IsEnabled = true;
         }
         private void setPortNum(int num)
         {

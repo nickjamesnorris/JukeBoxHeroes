@@ -76,12 +76,12 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Compile Include="Client.cs" />
     <Compile Include="PlayerUI\IPlayer.cs" />
+    <Compile Include="Server\Client.cs" />
     <Compile Include="Server\HostWindow.xaml.cs">
       <DependentUpon>HostWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Server\StateObject.cs" />
+    <Compile Include="Server\Listener.cs" />
     <Compile Include="Server\Join.xaml.cs">
       <DependentUpon>Join.xaml</DependentUpon>
     </Compile>

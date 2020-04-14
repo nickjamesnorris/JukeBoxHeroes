@@ -10,6 +10,5 @@ namespace Jukebox_Heroes
         void nextSong();
         void previousSong();
         SongData getCurrentSong();
-
     }
 }

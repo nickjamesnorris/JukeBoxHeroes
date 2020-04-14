@@ -20,6 +20,10 @@ namespace Jukebox_Heroes.Playlist
             this.songsListBox = songsListBox;
             this.library = library;
         }
+        public PlaylistData(ListBox songsListBox)
+        {
+            this.songsListBox = songsListBox;
+        }
 
         public void syncListAndListbox() {
             songsListBox.Items.Clear();
