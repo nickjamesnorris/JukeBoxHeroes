@@ -63,8 +63,15 @@ namespace Jukebox_Heroes.SongLibrary
         }
 
         private void Song_Library_Remove_Click(object sender, RoutedEventArgs e) {
-            SongData song = (SongData) Song_Library_List_View.SelectedItem;
-            if(song != null) songLibrary.removeSong(song.songID);
+            List<string> list = new List<string>();
+            foreach(SongData song in Song_Library_List_View.SelectedItems) {
+                list.Add(song.filePath);
+            }
+
+            foreach(string filePath in list) {
+                songLibrary.removeSong(filePath);
+            }
+            
         }
     }
 }

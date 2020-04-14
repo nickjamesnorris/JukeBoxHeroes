@@ -25,9 +25,9 @@ namespace Jukebox_Heroes.SongLibrary
             songList.Add(song);
         }
 
-        public void removeSong(int songID)
+        public void removeSong(string filePath)
         {
-            songList.Remove(getSong(songID));
+            songList.Remove(getSong(filePath));
         }
 
         public void saveLibrary() {
@@ -68,9 +68,9 @@ namespace Jukebox_Heroes.SongLibrary
 
         }
 
-        public SongData getSong(int songID) {
+        public SongData getSong(string filePath) {
             foreach (SongData song in songList) {
-                if (song.songID == songID) return song;
+                if (song.filePath == filePath) return song;
             }
             return null;
         }
