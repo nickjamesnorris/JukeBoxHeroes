@@ -14,13 +14,18 @@
         <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="198,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Pause_Button" Content="Pause" HorizontalAlignment="Left" Margin="290,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Stop_Button" Content="Stop" HorizontalAlignment="Left" Margin="381,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="100" Margin="306,85,0,0" VerticalAlignment="Top" Width="100"/>
+        <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="205" Margin="145,36,0,0" VerticalAlignment="Top" Width="205" RenderTransformOrigin="1.366,1.008"/>
         <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" ValueChanged="Song_Slider_ValueChanged" HorizontalAlignment="Left" Margin="198,309,0,0" VerticalAlignment="Top" Width="451"/>
         <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="145,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
+
         <Button x:Name="Host_Button" Content="Host Server" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="30,327,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible"/>
         <Button x:Name="Join_Button" Content="Join Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="29,294,0,0" Click="Join_Button_Click"/>
+
+        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268" Source="/assets/CurrentAlbumArt.png"/>
+        <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="418,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="268" Width="233" FontSize="18"/>
+
     </Grid>
 </Window>
