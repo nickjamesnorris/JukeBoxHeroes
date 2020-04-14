@@ -82,6 +82,14 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Compile Include="PlayerUI\IPlayer.cs" />
+    <Compile Include="Server\Client.cs" />
+    <Compile Include="Server\HostWindow.xaml.cs">
+      <DependentUpon>HostWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Server\Listener.cs" />
+    <Compile Include="Server\Join.xaml.cs">
+      <DependentUpon>Join.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SongLibrary\ISongLibraryData.cs" />
     <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
@@ -105,6 +113,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Server\HostWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Server\Join.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SongLibrary\SongLibraryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,7 +166,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+
+    <Resource Include="Server\d7b01e1846494f4557f107996843b4ee.jpeg" />
+
     <Resource Include="AlbumArtPlaceholder.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

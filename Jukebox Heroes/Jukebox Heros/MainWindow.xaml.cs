@@ -2,6 +2,7 @@
 using Jukebox_Heroes.Playlist;
 using Jukebox_Heroes.Song;
 using Jukebox_Heroes.SongLibrary;
+using Jukebox_Heroes.Server;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Net.Sockets;
+using System.Net;
 
 namespace Jukebox_Heroes
 {
@@ -28,9 +31,12 @@ namespace Jukebox_Heroes
     public partial class MainWindow : Window
     {
         IPlayer player;
-        IPlaylistData playlist;
+        public IPlaylistData playlist;
         ISongLibraryData songLibrary;
         Window songLibraryWindow;
+        Window serverWindow;
+        Window joinWindow;
+
 
         public MainWindow() {
             InitializeComponent();
@@ -67,5 +73,19 @@ namespace Jukebox_Heroes
         private void Remove_Song_From_Playlist_Button_Click(object sender, RoutedEventArgs e) {
             playlist.removeSong();
         }
+
+        private void Host_Button_Click(object sender, RoutedEventArgs e)
+        {
+            serverWindow = new ServerWindow(Song_List_Box);
+            serverWindow.Show();
+        }
+
+        private void Join_Button_Click(object sender, RoutedEventArgs e)
+        {
+            joinWindow = new Join();
+            joinWindow.Show();
+        }
+
     }
 }
+
