@@ -20,7 +20,7 @@
         <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
         <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
-        <Button x:Name="Host_Button" Content="Host" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="30,327,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible"/>
-        <Button x:Name="Join_Button" Content="Join" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="29,294,0,0" Click="Join_Button_Click"/>
+        <Button x:Name="Host_Button" Content="Host Server" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="30,327,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible"/>
+        <Button x:Name="Join_Button" Content="Join Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="29,294,0,0" Click="Join_Button_Click"/>
     </Grid>
 </Window>
