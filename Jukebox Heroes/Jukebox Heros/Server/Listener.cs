@@ -1,5 +1,7 @@
 ﻿using Jukebox_Heroes.Song;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -10,10 +12,10 @@ namespace Jukebox_Heroes.Server
 {
     public class Listener
     {
-        ListBox play;
-        public Listener(ListBox playlist)
+        IPlaylistData playlist;
+        public Listener(IPlaylistData playlist)
         {
-            this.play = playlist;
+            this.playlist = playlist;
         }
 
         public void ExecuteServer(int portNum)
@@ -46,10 +48,20 @@ namespace Jukebox_Heroes.Server
                         {
                             MainWindow joiner = new MainWindow();
 
-                            for (int i = 0; i < play.Items.Count; i++)
+                            List<SongData> list = playlist.getAllSongs();
+
+                            for (int i = 0; i < list.Count; i++)
                             {
-                                joiner.playlist.addSong((SongData)play.Items[i]);
+                                Uri newUri = new Uri("http://localhost:8080/" + list[i].filePath);
+
+                                SongData newSong = new SongData(list[i].filePath);
+                                newSong.songUri = newUri;
+
+                                Console.WriteLine(newUri);
+                                joiner.playlist.addSong(newSong);
                             }
+
+
                             joiner.Join_Button.Visibility = Visibility.Hidden;
                             joiner.Host_Button.Visibility = Visibility.Hidden;
                             joiner.Add_Song_To_Playlist_Button.Visibility = Visibility.Hidden;

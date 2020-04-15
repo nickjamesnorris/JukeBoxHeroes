@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Jukebox_Heroes.PlayerUI;
 using Jukebox_Heroes.Server;
 
 namespace Jukebox_Heroes.Server
@@ -21,9 +22,13 @@ namespace Jukebox_Heroes.Server
     /// </summary>
     public partial class Join : Window
     {
-        public Join()
+        IPlayer player;
+
+        public Join(IPlayer player)
         {
             InitializeComponent();
+
+            this.player = player;
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
@@ -31,7 +36,7 @@ namespace Jukebox_Heroes.Server
             int portNum = 0;
             if (String.IsNullOrEmpty(Port_Number.Text))
             {
-                portNum = 8080;
+                portNum = 8888;
             }
             else
             {
@@ -40,6 +45,7 @@ namespace Jukebox_Heroes.Server
 
             Client client = new Client();
             client.StartClient(portNum);
+            player.setSource(new Uri("http://localhost:8080/"));
             Close();
         }
 

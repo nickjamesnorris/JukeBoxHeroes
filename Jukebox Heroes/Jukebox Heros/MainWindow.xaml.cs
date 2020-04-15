@@ -30,7 +30,7 @@ namespace Jukebox_Heroes
     /// </summary>
     public partial class MainWindow : Window
     {
-        IPlayer player;
+        public IPlayer player;
         public IPlaylistData playlist;
         ISongLibraryData songLibrary;
         Window songLibraryWindow;
@@ -76,13 +76,13 @@ namespace Jukebox_Heroes
 
         private void Host_Button_Click(object sender, RoutedEventArgs e)
         {
-            serverWindow = new ServerWindow(Song_List_Box);
+            serverWindow = new ServerWindow(playlist);
             serverWindow.Show();
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-            joinWindow = new Join();
+            joinWindow = new Join(player);
             joinWindow.Show();
         }
 

@@ -1,4 +1,5 @@
 ﻿using Jukebox_Heroes.Song;
+using System.Collections.Generic;
 
 namespace Jukebox_Heroes
 {
@@ -10,5 +11,6 @@ namespace Jukebox_Heroes
         void nextSong();
         void previousSong();
         SongData getCurrentSong();
+        List<SongData> getAllSongs();
     }
 }
