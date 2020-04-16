@@ -1,4 +1,5 @@
 ﻿using Jukebox_Heroes.Song;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -12,6 +13,7 @@ namespace Jukebox_Heroes
         void loadLibrary();
         SongData getSong(string filePath);
         ObservableCollection<SongData> getSongList();
+        bool isFileInLibrary(Uri fileToCheck);
     }
 }
 

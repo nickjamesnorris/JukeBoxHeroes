@@ -85,5 +85,17 @@ namespace Jukebox_Heroes.SongLibrary
             return songList;
         }
 
+        public bool isFileInLibrary(Uri fileToCheck)
+        {
+            for (int i = 0; i < songList.Count; i++)
+            {
+                if (fileToCheck == songList[i].songUri)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

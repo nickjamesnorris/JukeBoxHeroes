@@ -26,8 +26,9 @@ namespace Jukebox_Heroes.Server
         public int portNum;
         public static ManualResetEvent allDone = new ManualResetEvent(false);
         public IPlaylistData playlist;
+        public ISongLibraryData songLibrary;
 
-        public ServerWindow(IPlaylistData playlist)
+        public ServerWindow(IPlaylistData playlist, ISongLibraryData songLibrary)
         {
             InitializeComponent();
             this.portNum = 1000;
@@ -35,6 +36,7 @@ namespace Jukebox_Heroes.Server
             Server_IP_txtbox.Text = Dns.GetHostByName(hostName).AddressList[0].ToString();
             Server_IP_txtbox.IsEnabled = false;
             this.playlist = playlist;
+            this.songLibrary = songLibrary;
         }
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
@@ -62,7 +64,7 @@ namespace Jukebox_Heroes.Server
         {
             Port_Number_txtbox.Text = this.portNum.ToString();
             Port_Number_txtbox.IsEnabled = false;
-            Listener listen = new Listener(this.playlist);
+            Listener listen = new Listener(this.playlist, this.songLibrary);
 
             await Task.Run(() =>
             {
