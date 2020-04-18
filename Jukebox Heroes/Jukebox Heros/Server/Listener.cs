@@ -13,11 +13,9 @@ namespace Jukebox_Heroes.Server
     public class Listener
     {
         IPlaylistData playlist;
-        ISongLibraryData songLibrary;
-        public Listener(IPlaylistData playlist, ISongLibraryData songLibrary)
+        public Listener(IPlaylistData playlist)
         {
             this.playlist = playlist;
-            this.songLibrary = songLibrary;
         }
 
         public void ExecuteServer(int portNum)
@@ -54,16 +52,14 @@ namespace Jukebox_Heroes.Server
 
                             for (int i = 0; i < list.Count; i++)
                             {
+                                //Replace percent thing with actual space
+                                
                                 Uri newUri = new Uri("http://localhost:8080/" + list[i].filePath);
+                                SongData newSong = new SongData(list[i].filePath);
+                                newSong.songUri = newUri;
 
-                                if (songLibrary.isFileInLibrary(newUri)) //If the file we're adding is inside the library
-                                {
-                                    SongData newSong = new SongData(list[i].filePath);
-                                    newSong.songUri = newUri;
-
-                                    Console.WriteLine(newUri);
-                                    joiner.playlist.addSong(newSong);
-                                }
+                                Console.WriteLine(newUri);
+                                joiner.playlist.addSong(newSong);
                             }
 
                             joiner.Join_Button.Visibility = Visibility.Hidden;

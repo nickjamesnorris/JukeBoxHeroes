@@ -13,8 +13,10 @@ namespace Jukebox_Heroes.Server
     {
 
         private readonly HttpListener _listener = new HttpListener();
+        public ISongLibraryData songLibrary;
 
-        public MediaServer(string prefix) {
+        public MediaServer(string prefix, ISongLibraryData songLibrary) {
+            this.songLibrary = songLibrary;
             if (!HttpListener.IsSupported)
                 throw new NotSupportedException(
                     "Needs Windows XP SP2, Server 2003 or later.");
@@ -28,8 +30,15 @@ namespace Jukebox_Heroes.Server
             _listener.Start();
         }
 
-        private byte[] getCurrentSongByteArray(HttpListenerRequest r) {
-            return File.ReadAllBytes(r.RawUrl.Substring(1));
+        private byte[] getCurrentSongByteArray(HttpListenerRequest r, ISongLibraryData songLibrary) {
+            if (songLibrary.isFileInLibrary(r.RawUrl.Substring(1)))
+            {
+                return File.ReadAllBytes(r.RawUrl.Substring(1));
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void Run() {
@@ -42,7 +51,7 @@ namespace Jukebox_Heroes.Server
                             var ctx = c as HttpListenerContext;
                             try {
                                 Console.WriteLine("Got request for " + ctx.Request.RawUrl.Substring(1));
-                                byte[] buf = getCurrentSongByteArray(ctx.Request);
+                                byte[] buf = getCurrentSongByteArray(ctx.Request, songLibrary);
                                 ctx.Response.ContentLength64 = buf.Length;
                                 ctx.Response.ContentType = "audio/mpeg";
                                 ctx.Response.OutputStream.Write(buf, 0, buf.Length);
