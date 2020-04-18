@@ -14,7 +14,7 @@
         <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="601,61,0,0" VerticalAlignment="Top" Width="128" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
         <Button x:Name="Add_Song_To_Playlist_Button" Content="Add Song" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="601,322,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFE78200" Grid.Column="1"/>
         <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove" HorizontalAlignment="Left" Margin="601,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFE78200" FontSize="16" FontWeight="Bold" Grid.Column="1" />
-        <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="-692,-495,0,0" VerticalAlignment="Top" Width="559" Grid.Column="1" Height="547" RenderTransformOrigin="1.714,1.6">
+        <Button x:Name="Play_Button" Content="" HorizontalAlignment="Left" Margin="-692,-495,0,0" VerticalAlignment="Top" Width="559" Grid.Column="1" Height="547" RenderTransformOrigin="1.714,1.6">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.05" ScaleY="0.05"/>
@@ -89,7 +89,7 @@
 
         <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="232" Margin="132,49,0,0" VerticalAlignment="Top" Width="226" Source="/assets/CurrentAlbumArt.png" Grid.Column="1"/>
         <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="363,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="232" Width="233" FontSize="18" Foreground="White" Grid.Column="1"/>
-        <Image x:Name="logo_png" Margin="0,-10,0,0" Source="logo.png" Stretch="None" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0,0" Grid.ColumnSpan="2">
+        <Image x:Name="logo_png" Margin="0,-10,0,0" Source="JBlogo.png" Stretch="None" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0,0" Grid.ColumnSpan="2">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>

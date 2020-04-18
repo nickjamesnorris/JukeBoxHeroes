@@ -190,5 +190,8 @@
   <ItemGroup>
     <Resource Include="next - Copy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="JBlogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

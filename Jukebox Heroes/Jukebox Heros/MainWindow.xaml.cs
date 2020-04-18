@@ -32,6 +32,7 @@ namespace Jukebox_Heroes
     {
         IPlayer player;
         public IPlaylistData playlist;
+        public ImageSource Source { get; set; }
         ISongLibraryData songLibrary;
         Window songLibraryWindow;
         Window serverWindow;
@@ -52,24 +53,6 @@ namespace Jukebox_Heroes
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
         }
-        //private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        //{
-        //    myCanvas.Width = e.NewSize.Width;
-        //    myCanvas.Height = e.NewSize.Height;
-
-        //    double xChange = 1, yChange = 1;
-
-        //    if (e.PreviousSize.Width != 0)
-        //        xChange = (e.NewSize.Width / e.PreviousSize.Width);
-
-        //    if (e.PreviousSize.Height != 0)
-        //        yChange = (e.NewSize.Height / e.PreviousSize.Height);
-
-        //    ScaleTransform scale = new ScaleTransform(myCanvas.LayoutTransform.Value.M11 * xChange, myCanvas.LayoutTransform.Value.M22 * yChange);
-        //    myCanvas.LayoutTransform = scale;
-        //    myCanvas.UpdateLayout();
-        //}
-
 
         private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {
             player.slider_DragStarted();
