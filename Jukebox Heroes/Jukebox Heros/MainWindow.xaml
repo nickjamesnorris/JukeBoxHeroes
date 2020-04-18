@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jukebox_Heroes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="850">
-    <Grid>
-
-        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="656,61,0,0" VerticalAlignment="Top" Width="128"/>
+        Title="MainWindow" Height="Auto" Width="Auto" WindowState="Maximized" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="656,61,10,0" VerticalAlignment="Top" Width="128"/>
         <Button x:Name="Add_Song_To_Playlist_Button" Content="Add Song" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="656,322,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
         <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove" HorizontalAlignment="Left" Margin="656,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
         <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="198,360,0,0" VerticalAlignment="Top" Width="65"/>
@@ -26,6 +25,5 @@
 
         <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268" Source="/assets/CurrentAlbumArt.png"/>
         <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="418,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="268" Width="233" FontSize="18"/>
-
     </Grid>
 </Window>
