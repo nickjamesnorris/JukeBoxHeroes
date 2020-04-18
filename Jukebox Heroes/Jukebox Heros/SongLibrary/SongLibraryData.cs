@@ -46,12 +46,14 @@ namespace Jukebox_Heroes.SongLibrary
                 MessageBox.Show("Need to first have a saved library in order to load one.");
                 return;
             }
-            SongLibraryData library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
+            SongLibraryData library;
+            library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
             if(library == null)
             {
                 MessageBox.Show("library.json could not be opened.");
                 return;
             }
+     
             songList = library.songList;
 
         }
