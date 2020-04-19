@@ -25,27 +25,30 @@ namespace Jukebox_Heroes.Server
     {
         public int portNum;
         public static ManualResetEvent allDone = new ManualResetEvent(false);
+        public IPlaylistData playlist;
+        public ISongLibraryData songLibrary;
         public ListBox play;
         public Label hosting;
         public string hostName;
 
-        public ServerWindow(ListBox playlist, Label hosting)
+        public ServerWindow(IPlaylistData playlist, Label hosting, ISongLibraryData songLibrary)
         {
             InitializeComponent();
             this.portNum = 1000;
             hostName = Dns.GetHostName();
             Server_IP_txtbox.Text = Dns.GetHostByName(hostName).AddressList[0].ToString();
             Server_IP_txtbox.IsEnabled = false;
-            this.play = playlist;
+            this.playlist = playlist;
+            this.songLibrary = songLibrary;
             this.hosting = hosting;
         }
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
         {
             
-            if (String.IsNullOrEmpty(Port_Number_txtbox.Text))
+           if (String.IsNullOrEmpty(Port_Number_txtbox.Text))
             {
-                setPortNum(8080);
+                setPortNum(8888);
             }
             else
             {
@@ -57,8 +60,9 @@ namespace Jukebox_Heroes.Server
 
             Server_Start();
 
-            Client client = new Client();
-            client.StartClient(this.portNum);
+            
+            MediaServer mediaServer = new MediaServer("http://+:8080/", songLibrary);
+            mediaServer.Run();
             Close();
         }
 
@@ -66,7 +70,7 @@ namespace Jukebox_Heroes.Server
         {
             Port_Number_txtbox.Text = this.portNum.ToString();
             Port_Number_txtbox.IsEnabled = false;
-            Listener listen = new Listener(this.play);
+            Listener listen = new Listener(this.playlist);
 
             await Task.Run(() =>
             {
@@ -78,6 +82,7 @@ namespace Jukebox_Heroes.Server
         {
             this.portNum = num;
         }
+        
     }
 }
 

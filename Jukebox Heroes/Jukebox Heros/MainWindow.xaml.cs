@@ -22,6 +22,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Net.Sockets;
 using System.Net;
+using System.Security.Principal;
 
 namespace Jukebox_Heroes
 {
@@ -30,7 +31,7 @@ namespace Jukebox_Heroes
     /// </summary>
     public partial class MainWindow : Window
     {
-        IPlayer player;
+        public IPlayer player;
         public IPlaylistData playlist;
         public ImageSource Source { get; set; }
         ISongLibraryData songLibrary;
@@ -78,7 +79,12 @@ namespace Jukebox_Heroes
 
         private void Host_Button_Click(object sender, RoutedEventArgs e)
         {
-            serverWindow = new ServerWindow(Song_List_Box, Hosting_Label);
+            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)) {
+                MessageBox.Show("Need to run program as an administrator to host a server.");
+                return;
+            } 
+
+            serverWindow = new ServerWindow(playlist, Hosting_Label, songLibrary);
             serverWindow.Show();
         }
 

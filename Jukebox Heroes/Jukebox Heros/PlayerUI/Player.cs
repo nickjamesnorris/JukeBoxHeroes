@@ -83,9 +83,10 @@ namespace Jukebox_Heroes.PlayerUI
             if (song != null)
             {
                 mediaPlayer.Source = song.songUri;
+                loadSongInfoInWindow(albumArt, songInfo);
+                mediaPlayer.Position = new TimeSpan(0);
             }
-            loadSongInfoInWindow(albumArt, songInfo);
-            mediaPlayer.Position = new TimeSpan(0);
+            
         }
 
         public void OnMediaEnded(object sender, EventArgs e)
@@ -105,6 +106,10 @@ namespace Jukebox_Heroes.PlayerUI
 
         public void slider_ValueChanged() {
             timeText.Text = TimeSpan.FromSeconds(slider.Value).ToString(@"hh\:mm\:ss");
+        }
+
+        public void setSource(Uri uri) {
+            mediaPlayer.Source = uri;
         }
 
         public void loadSongInfoInWindow(Image albumArt, TextBlock songInfo)
@@ -136,5 +141,6 @@ namespace Jukebox_Heroes.PlayerUI
 
             songInfo.Text = songInfoString;
         }
+
     }
 }

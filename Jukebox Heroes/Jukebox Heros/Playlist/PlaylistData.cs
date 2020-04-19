@@ -35,6 +35,10 @@ namespace Jukebox_Heroes.Playlist
 
         }
 
+        public List<SongData> getAllSongs() {
+            return songData;
+        }
+
         public void addSong(SongData song)
         {
             this.songData.Add(song);

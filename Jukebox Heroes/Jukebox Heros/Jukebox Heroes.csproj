@@ -61,6 +61,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -90,6 +91,7 @@
     <Compile Include="Server\Join.xaml.cs">
       <DependentUpon>Join.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Server\MediaServer.cs" />
     <Compile Include="SongLibrary\ISongLibraryData.cs" />
     <Compile Include="Playlist\IPlaylistData.cs" />
     <Compile Include="Playlist\PlaylistData.cs" />
@@ -209,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="backward-1.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

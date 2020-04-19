@@ -43,7 +43,7 @@
         <Button x:Name="Host_Button" Content="Host Server" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="11,326,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible" Grid.ColumnSpan="2" Background="#FF74D14C" BorderBrush="#FF0630F0" Foreground="#FF0275FF" FontWeight="Bold"/>
         <Button x:Name="Join_Button" Content="Join Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,294,0,0" Click="Join_Button_Click" Grid.ColumnSpan="2" Background="#FF74D14C" Foreground="#FF0275FF" FontWeight="Bold" BorderBrush="#FF0630F0"/>
 
-        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="232" Margin="132,49,0,0" VerticalAlignment="Top" Width="226" Source="/assets/CurrentAlbumArt.png" Grid.Column="1"/>
+        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="232" Margin="132,49,0,0" VerticalAlignment="Top" Width="226" Grid.Column="1"/>
         <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="363,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="232" Width="233" FontSize="18" Foreground="White" Grid.Column="1"/>
         <Image x:Name="logo_png" Margin="0,-10,0,0" Source="JBlogo.png" Stretch="None" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0,0" Grid.ColumnSpan="2">
             <Image.RenderTransform>

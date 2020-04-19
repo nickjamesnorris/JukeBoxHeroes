@@ -20,5 +20,8 @@ namespace Jukebox_Heroes.PlayerUI
         void slider_DragCompleted();
         void slider_ValueChanged();
         void loadSongInfoInWindow(Image albumArt, TextBlock songInfo);
+
+        void setSource(Uri uri);
+
 }
 }

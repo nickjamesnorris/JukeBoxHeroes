@@ -8,7 +8,7 @@ using TagLib;
 namespace Jukebox_Heroes.Song
 {
     public class SongData {
-        public Uri songUri { get; }
+        public Uri songUri { get; set; }
         public string title { get; }
         public string album { get; }
         public string artist { get; }
