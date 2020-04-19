@@ -7,10 +7,10 @@ namespace Jukebox_Heroes
     public interface ISongLibraryData
     {
         void addSong(SongData song);
-        void removeSong(int songID);
+        void removeSong(string filePath);
         void saveLibrary();
         void loadLibrary();
-        SongData getSong(int songID);
+        SongData getSong(string filePath);
         ObservableCollection<SongData> getSongList();
     }
 }

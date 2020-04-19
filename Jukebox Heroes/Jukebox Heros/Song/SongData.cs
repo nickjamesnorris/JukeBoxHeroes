@@ -8,8 +8,6 @@ using TagLib;
 namespace Jukebox_Heroes.Song
 {
     public class SongData {
-        private static int nextSongID = 0;
-
         public Uri songUri { get; }
         public string title { get; }
         public string album { get; }
@@ -18,7 +16,6 @@ namespace Jukebox_Heroes.Song
         public uint year { get; }
         public string[] genres { get; }
         public TimeSpan duration { get; }
-        public int songID { get; }
         public Image albumArt { get; }
 
         public SongData(string filePath)
@@ -36,7 +33,7 @@ namespace Jukebox_Heroes.Song
 
             if (this.title == null)
             {
-                this.title = filePath;
+                this.title = System.IO.Path.GetFileNameWithoutExtension(filePath);
             }
 
             if (this.artist == null)
@@ -71,7 +68,6 @@ namespace Jukebox_Heroes.Song
                 }
             }
 
-            this.songID = nextSongID++;
         }
 
         public System.Windows.Controls.Image ConvertAlbumArtToWPFImage()
