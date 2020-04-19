@@ -22,6 +22,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Net.Sockets;
 using System.Net;
+using System.Security.Principal;
 
 namespace Jukebox_Heroes
 {
@@ -78,6 +79,10 @@ namespace Jukebox_Heroes
 
         private void Host_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)) {
+                MessageBox.Show("Need to run program as an administrator to host a server.");
+                return;
+            } 
             serverWindow = new ServerWindow(playlist, songLibrary);
             serverWindow.Show();
         }
