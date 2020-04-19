@@ -5,27 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jukebox_Heroes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="850">
-    <Grid>
+        Title="JukeBox Heroes" Height="Auto" Width="Auto" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Background="#FF191919">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="382" Width="790">
+        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="601,61,0,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="128" Background="{x:Null}" Foreground="White" Grid.Column="1" AutomationProperties.HelpText="Create a Playlist to Get Started"/>
+        <Button x:Name="Add_Song_To_Playlist_Button" Content="Create Playlist" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="599,322,0,0" VerticalAlignment="Top" Width="131" FontWeight="Bold" Background="#FF74D14C" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" Height="29" FontFamily="Arial" FontSize="16"/>
+        <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove Song" HorizontalAlignment="Left" Margin="599,36,0,0" VerticalAlignment="Top" Width="131" Height="25" Background="#FF74D14C" FontSize="16" FontWeight="Bold" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" FontFamily="Arial" />
+        <Button x:Name="Play_Button" Content="" Margin="271,338,495,20" RenderTransformOrigin="14.222,7.154">
+            <Button.Background>
+                <ImageBrush ImageSource="play1-1.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Pause_Button" Content="" HorizontalAlignment="Left" Margin="300,338,0,0" VerticalAlignment="Top" Width="26" RenderTransformOrigin="1.333,1.067" Height="24">
+            <Button.Background>
+                <ImageBrush ImageSource="pause-1.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Stop_Button" Content="" Margin="331,338,432,20" >
+            <Button.Background>
+                <ImageBrush ImageSource="stop-1.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="169" Margin="143,49,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="1.366,1.008" Grid.Column="1"/>
+        <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" ValueChanged="Song_Slider_ValueChanged" HorizontalAlignment="Left" Margin="143,309,0,0" VerticalAlignment="Top" Width="451" Grid.Column="1"/>
+        <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="90,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+        <Button x:Name="Next_Button" Content="" Margin="416,338,349,20" RenderTransformOrigin="-0.897,0.787">
+            <Button.Background>
+                <ImageBrush ImageSource="forward-1.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Previous_Button" Content="" Margin="386,338,379,20">
+            <Button.Background>
+                <ImageBrush ImageSource="backward-1.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="627,0,0,0" FontSize="24" Foreground="#FF4C96D7" Grid.Column="1" FontFamily="Ink Free" FontWeight="Bold" Height="36" Width="92"/>
 
-        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="656,61,0,0" VerticalAlignment="Top" Width="128"/>
-        <Button x:Name="Add_Song_To_Playlist_Button" Content="Add Song" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="656,322,0,0" VerticalAlignment="Top" Width="128" FontSize="16" FontWeight="Bold" Background="#FFC94C4C"/>
-        <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove" HorizontalAlignment="Left" Margin="656,36,0,0" VerticalAlignment="Top" Width="128" Height="25" Background="#FFEC7600" FontSize="16" FontWeight="Bold" />
-        <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="198,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button x:Name="Pause_Button" Content="Pause" HorizontalAlignment="Left" Margin="290,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button x:Name="Stop_Button" Content="Stop" HorizontalAlignment="Left" Margin="381,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="205" Margin="145,36,0,0" VerticalAlignment="Top" Width="205" RenderTransformOrigin="1.366,1.008"/>
-        <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" ValueChanged="Song_Slider_ValueChanged" HorizontalAlignment="Left" Margin="198,309,0,0" VerticalAlignment="Top" Width="451"/>
-        <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="145,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="Next_Button" Content="Next" HorizontalAlignment="Left" Margin="559,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button x:Name="Previous_Button" Content="Previous" HorizontalAlignment="Left" Margin="468,360,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label x:Name="Playlist_Label" Content="Playlist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,7,0,0" FontSize="14"/>
+        <Button x:Name="Host_Button" Content="Host Server" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="11,326,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible" Grid.ColumnSpan="2" Background="#FF74D14C" BorderBrush="#FF0630F0" Foreground="#FF0275FF" FontWeight="Bold"/>
+        <Button x:Name="Join_Button" Content="Join Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,294,0,0" Click="Join_Button_Click" Grid.ColumnSpan="2" Background="#FF74D14C" Foreground="#FF0275FF" FontWeight="Bold" BorderBrush="#FF0630F0"/>
 
-        <Button x:Name="Host_Button" Content="Host Server" Click="Host_Button_Click" HorizontalAlignment="Left" Margin="30,327,0,0" VerticalAlignment="Top" Width="74" Visibility = "Visible"/>
-        <Button x:Name="Join_Button" Content="Join Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="29,294,0,0" Click="Join_Button_Click"/>
-
-        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="268" Margin="145,36,0,0" VerticalAlignment="Top" Width="268" Source="/assets/CurrentAlbumArt.png"/>
-        <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="418,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="268" Width="233" FontSize="18"/>
-
+        <Image x:Name="Album_Art" HorizontalAlignment="Left" Height="232" Margin="132,49,0,0" VerticalAlignment="Top" Width="226" Source="/assets/CurrentAlbumArt.png" Grid.Column="1"/>
+        <TextBlock x:Name="Song_Info" HorizontalAlignment="Left" Margin="363,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="232" Width="233" FontSize="18" Foreground="White" Grid.Column="1"/>
+        <Image x:Name="logo_png" Margin="0,-10,0,0" Source="JBlogo.png" Stretch="None" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" RenderTransformOrigin="0,0" Grid.ColumnSpan="2">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="Create_Playlist_Label" Content="Create a Playlist to Start" HorizontalAlignment="Left" Margin="582,356,0,0" VerticalAlignment="Top" Width="162" FontFamily="Ink Free" Foreground="#FF4C96D7" FontWeight="Bold" BorderBrush="#FF4C96D7" Background="Transparent" FontSize="13"/>
     </Grid>
 </Window>

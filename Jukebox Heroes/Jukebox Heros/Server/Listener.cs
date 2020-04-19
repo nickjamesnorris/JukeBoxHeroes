@@ -62,6 +62,7 @@ namespace Jukebox_Heroes.Server
                                joiner.playlist.addSong(newSong);
                             }
 
+                            joiner.Create_Playlist_Label.Visibility = Visibility.Hidden;
                             joiner.Join_Button.Visibility = Visibility.Hidden;
                             joiner.Host_Button.Visibility = Visibility.Hidden;
                             joiner.Add_Song_To_Playlist_Button.Visibility = Visibility.Hidden;

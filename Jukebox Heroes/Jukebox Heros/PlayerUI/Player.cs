@@ -114,37 +114,13 @@ namespace Jukebox_Heroes.PlayerUI
 
         public void loadSongInfoInWindow(Image albumArt, TextBlock songInfo)
         {
-            //String title;
-            //String artist;
-            //String album;
-            //String genre;
-            //String year;
-
-            ////Title (already have checked for null in song class)
-            //title = playList.getCurrentSong().title;
-
-            ////Artist
-            //if (playList.getCurrentSong().artist == null)
-            //{
-            //    artist = "Unknown Artist";
-            //}
-            //else
-            //{
-            //    artist = playList.getCurrentSong().artist;
-            //}
-
-            ////Album
-            //if (playList.getCurrentSong().album == null)
-            //{
-            //    album = "Unknown Album";
-            //}
-            //else
-            //{
-            //    album = playList.getCurrentSong().album;
-            //}
-
             SongData currentSong = playList.getCurrentSong();
             String songInfoString;
+
+            if( currentSong == null)
+            {
+                return;
+            }
 
             albumArt.Source = currentSong.ConvertAlbumArtToWPFImage().Source;
 
