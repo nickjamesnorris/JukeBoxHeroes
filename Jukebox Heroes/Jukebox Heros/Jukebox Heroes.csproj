@@ -169,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Server\d7b01e1846494f4557f107996843b4ee.jpeg" />
-    <Resource Include="AlbumArtPlaceholder.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="JukeBoxLogo.png" />

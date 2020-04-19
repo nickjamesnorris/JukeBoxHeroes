@@ -83,7 +83,8 @@ namespace Jukebox_Heroes
                 MessageBox.Show("Need to run program as an administrator to host a server.");
                 return;
             } 
-            serverWindow = new ServerWindow(playlist, songLibrary);
+
+            serverWindow = new ServerWindow(Song_List_Box, Hosting_Label, songLibrary);
             serverWindow.Show();
         }
 

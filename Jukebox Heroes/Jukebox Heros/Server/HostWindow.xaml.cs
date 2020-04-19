@@ -27,16 +27,20 @@ namespace Jukebox_Heroes.Server
         public static ManualResetEvent allDone = new ManualResetEvent(false);
         public IPlaylistData playlist;
         public ISongLibraryData songLibrary;
+        public ListBox play;
+        public Label hosting;
+        public string hostName;
 
-        public ServerWindow(IPlaylistData playlist, ISongLibraryData songLibrary)
+        public ServerWindow(IPlaylistData playlist, Label hosting, ISongLibraryData songLibrary)
         {
             InitializeComponent();
             this.portNum = 1000;
-            string hostName = Dns.GetHostName();
+            hostName = Dns.GetHostName();
             Server_IP_txtbox.Text = Dns.GetHostByName(hostName).AddressList[0].ToString();
             Server_IP_txtbox.IsEnabled = false;
             this.playlist = playlist;
             this.songLibrary = songLibrary;
+            this.hosting = hosting;
         }
 
         private void Button_Host_Click(object sender, RoutedEventArgs e)
@@ -50,6 +54,10 @@ namespace Jukebox_Heroes.Server
             {
                 setPortNum(int.Parse(Port_Number_txtbox.Text));
             }
+
+            hosting.Content = "Hosting on " + Server_IP_txtbox.Text + ":" + portNum;
+            hosting.Visibility = Visibility.Visible;
+
             Server_Start();
 
             
