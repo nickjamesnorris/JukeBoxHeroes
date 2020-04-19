@@ -103,8 +103,6 @@ namespace Jukebox_Heroes.SongLibrary
             
             for (int i = 0; i < songList.Count; i++)
             {
-                Console.WriteLine("File path to check: " + filePathToCheck);
-                Console.WriteLine("File path of " + songList[i].title + " is " + songList[i].filePath);
                 if (filePathToCheck == songList[i].filePath)
                 {
                     return true;

@@ -31,9 +31,13 @@ namespace Jukebox_Heroes.Server
         }
 
         private byte[] getCurrentSongByteArray(HttpListenerRequest r, ISongLibraryData songLibrary) {
-            if (songLibrary.isFileInLibrary(r.RawUrl.Substring(1)))
+            //Replace %20 with spaces
+            string filePath = r.RawUrl.Substring(1);
+            filePath = filePath.Replace("%20", " ");
+
+            if (songLibrary.isFileInLibrary(filePath))
             {
-                return File.ReadAllBytes(r.RawUrl.Substring(1));
+                return File.ReadAllBytes(filePath);
             }
             else
             {

@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Web;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -52,13 +54,16 @@ namespace Jukebox_Heroes.Server
 
                             for (int i = 0; i < list.Count; i++)
                             {
-                                //Replace percent thing with actual space
-                                
-                                Uri newUri = new Uri("http://localhost:8080/" + list[i].filePath);
+                                //Replace spaces in list[i].filePath with %20
+                                Uri filePathUri = new Uri(list[i].filePath);
+                                string filePathUriString = "http://localhost:8080/" + filePathUri.AbsolutePath;
+                                Console.WriteLine("filePathUriString is " + filePathUriString);
+
+                                Uri newUri = new Uri(filePathUriString);
+                                Console.WriteLine("newUri is " + newUri);
                                 SongData newSong = new SongData(list[i].filePath);
                                 newSong.songUri = newUri;
 
-                                Console.WriteLine(newUri);
                                 joiner.playlist.addSong(newSong);
                             }
 
