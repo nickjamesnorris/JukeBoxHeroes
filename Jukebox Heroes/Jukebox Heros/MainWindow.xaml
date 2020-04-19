@@ -7,21 +7,64 @@
         mc:Ignorable="d"
         Title="JukeBox Heroes" Height="Auto" Width="Auto" WindowState="Maximized" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Background="#FF191919">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="382" Width="790">
+<<<<<<< HEAD
 
         <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="601,61,0,0" VerticalAlignment="Top" Width="128" Background="{x:Null}" Foreground="White" Grid.Column="1" AutomationProperties.HelpText="Create a Playlist to Get Started"/>
         <Button x:Name="Add_Song_To_Playlist_Button" Content="Create Playlist" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="599,322,0,0" VerticalAlignment="Top" Width="131" FontWeight="Bold" Background="#FF47CD08" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" Height="29" FontFamily="Arial" FontSize="16"/>
         <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove Song" HorizontalAlignment="Left" Margin="599,36,0,0" VerticalAlignment="Top" Width="131" Height="25" Background="#FF47CD08" FontSize="16" FontWeight="Bold" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" FontFamily="Arial" />
         <Button x:Name="Play_Button" Content="" HorizontalAlignment="Left" Margin="271,338,0,20" Width="24" RenderTransformOrigin="0.667,0.806">
+=======
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="739*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="601,61,0,0" VerticalAlignment="Top" Width="128" Background="{x:Null}" Foreground="White" Grid.Column="1" AutomationProperties.HelpText="Create a Playlist to Get Started"/>
+        <Button x:Name="Add_Song_To_Playlist_Button" Content="Create Playlist" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="599,322,0,0" VerticalAlignment="Top" Width="131" FontWeight="Bold" Background="#FF47CD08" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" Height="29" FontFamily="Arial" FontSize="16"/>
+        <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove Song" HorizontalAlignment="Left" Margin="599,36,0,0" VerticalAlignment="Top" Width="131" Height="25" Background="#FF47CD08" FontSize="16" FontWeight="Bold" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" FontFamily="Arial" />
+        <Button x:Name="Play_Button" Content="" HorizontalAlignment="Left" Margin="-692,-495,0,0" VerticalAlignment="Top" Width="559" Grid.Column="1" Height="547" RenderTransformOrigin="1.714,1.6">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.05" ScaleY="0.05"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.75"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
             <Button.Background>
                 <ImageBrush ImageSource="play1-1.png" Stretch="None"/>
             </Button.Background>
         </Button>
+<<<<<<< HEAD
         <Button x:Name="Pause_Button" Content="" HorizontalAlignment="Left" Margin="300,338,0,0" VerticalAlignment="Top" Width="26" RenderTransformOrigin="1.333,1.067" Height="24">
+=======
+        <Button x:Name="Pause_Button" Content="" HorizontalAlignment="Left" Margin="-780,-524,0,0" VerticalAlignment="Top" Width="642" Grid.Column="1" Height="566" RenderTransformOrigin="1.714,1.6" IsCancel="True">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
             <Button.Background>
                 <ImageBrush ImageSource="pause-1.png" Stretch="None"/>
             </Button.Background>
         </Button>
+<<<<<<< HEAD
         <Button x:Name="Stop_Button" Content="" Margin="331,338,432,20" >
+=======
+        <Button x:Name="Stop_Button" Content="" HorizontalAlignment="Left" Margin="-63,57,0,-265" VerticalAlignment="Top" Width="788" Grid.Column="1" Height="588" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.05" ScaleY="0.05"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
             <Button.Background>
                 <ImageBrush ImageSource="stop-1.png" Stretch="None"/>
             </Button.Background>
@@ -29,12 +72,36 @@
         <MediaElement x:Name="Media_Element" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="169" Margin="143,49,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="1.366,1.008" Grid.Column="1"/>
         <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" ValueChanged="Song_Slider_ValueChanged" HorizontalAlignment="Left" Margin="143,309,0,0" VerticalAlignment="Top" Width="451" Grid.Column="1"/>
         <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="90,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+<<<<<<< HEAD
         <Button x:Name="Next_Button" Content="" Margin="416,338,349,20" RenderTransformOrigin="-0.897,0.787">
+=======
+        <Button x:Name="Next_Button" Content="" HorizontalAlignment="Left" Margin="129,66,-12,-256" VerticalAlignment="Top" Width="612" Grid.Column="1" Height="570" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.06" ScaleY="0.06"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
             <Button.Background>
                 <ImageBrush ImageSource="forward-1.png" Stretch="None"/>
             </Button.Background>
         </Button>
+<<<<<<< HEAD
         <Button x:Name="Previous_Button" Content="" Margin="386,338,379,20">
+=======
+        <Button x:Name="Previous_Button" Content="" HorizontalAlignment="Left" Margin="2,60,-93,-281" VerticalAlignment="Top" Width="820" Grid.Column="1" Height="601" RenderTransformOrigin="0.183,0.35">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.06" ScaleY="0.06"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="540"/>
+                    <TranslateTransform X="246.943" Y="85.642"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
             <Button.Background>
                 <ImageBrush ImageSource="backward-1.png" Stretch="None"/>
             </Button.Background>
