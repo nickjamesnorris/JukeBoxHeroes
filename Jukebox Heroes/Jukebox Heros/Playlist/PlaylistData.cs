@@ -80,7 +80,16 @@ namespace Jukebox_Heroes.Playlist
         {
             if (songData.Count == 0) return null;
             currentSongIndex = songsListBox.SelectedIndex;
-            return songData.ElementAt(currentSongIndex);
+            
+            if (currentSongIndex == -1)
+            {
+                return null;
+            }
+
+            else
+            {
+                return songData.ElementAt(currentSongIndex);
+            }
         }
 
     }
