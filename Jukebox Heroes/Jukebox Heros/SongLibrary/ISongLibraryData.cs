@@ -13,7 +13,7 @@ namespace Jukebox_Heroes
         void loadLibrary();
         SongData getSong(string filePath);
         ObservableCollection<SongData> getSongList();
-        bool isFileInLibrary(Uri fileToCheck);
+        bool isFileInLibrary(string filePathToCheck);
     }
 }
 

@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Windows.Controls;
 using System.Windows;
 using System.Collections.ObjectModel;
+using System.Text;
 
 namespace Jukebox_Heroes.SongLibrary
 {
@@ -85,11 +86,24 @@ namespace Jukebox_Heroes.SongLibrary
             return songList;
         }
 
-        public bool isFileInLibrary(Uri fileToCheck)
+        public bool isFileInLibrary(string filePathToCheck)
         {
+            //Replace every / in filePathToCheck with \ so it will match up with each song
+            StringBuilder filePathToCheckCopy = new StringBuilder(filePathToCheck);
+            
+            for (int i = 0; i < filePathToCheck.Length; i++)
+            {
+                if (filePathToCheckCopy[i] == '/')
+                {
+                    filePathToCheckCopy[i] = '\\';
+                }
+            }
+
+            filePathToCheck = filePathToCheckCopy.ToString();
+            
             for (int i = 0; i < songList.Count; i++)
             {
-                if (fileToCheck == songList[i].songUri)
+                if (filePathToCheck == songList[i].filePath)
                 {
                     return true;
                 }

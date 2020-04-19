@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Web;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,11 +15,9 @@ namespace Jukebox_Heroes.Server
     public class Listener
     {
         IPlaylistData playlist;
-        ISongLibraryData songLibrary;
-        public Listener(IPlaylistData playlist, ISongLibraryData songLibrary)
+        public Listener(IPlaylistData playlist)
         {
             this.playlist = playlist;
-            this.songLibrary = songLibrary;
         }
 
         public void ExecuteServer(int portNum)
@@ -48,17 +48,19 @@ namespace Jukebox_Heroes.Server
                         
                             List<SongData> list = playlist.getAllSongs();
 
-                        for (int i = 0; i < list.Count; i++)
-                        {
-                            Uri newUri = new Uri("http://" + GetIPAddress().ToString() + ":8080/" + list[i].filePath);
+                            for (int i = 0; i < list.Count; i++)
+                            {
+                               Uri filePathUri = new Uri(list[i].filePath);
+                               string filePathUriString = "http://" + GetIPAddress().ToString() + ":8080/" + filePathUri.AbsolutePath;
+                               Console.WriteLine("filePathUriString is " + filePathUriString);
 
-                            SongData newSong = new SongData(list[i].filePath);
-                            newSong.songUri = newUri;
+                               Uri newUri = new Uri(filePathUriString);
+                               Console.WriteLine("newUri is " + newUri);
+                               SongData newSong = new SongData(list[i].filePath);
+                               newSong.songUri = newUri;
 
-                            Console.WriteLine(newUri);
-                            joiner.playlist.addSong(newSong);
-                                
-                        }
+                               joiner.playlist.addSong(newSong);
+                            }
 
                             joiner.Join_Button.Visibility = Visibility.Hidden;
                             joiner.Host_Button.Visibility = Visibility.Hidden;
