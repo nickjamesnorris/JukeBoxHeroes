@@ -193,5 +193,23 @@
   <ItemGroup>
     <Resource Include="JBlogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="play1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="play1-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pause-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="stop-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forward-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="backward-1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
