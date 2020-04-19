@@ -19,11 +19,11 @@
             </ListView.View>
         </ListView>
 
-        <Button x:Name="Song_Library_Upload" Content="Upload Song" Click="Song_Library_Upload_Click" HorizontalAlignment="Left" Margin="230,363,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="Song_Library_Upload" Content="Upload Songs to Library" Click="Song_Library_Upload_Click" HorizontalAlignment="Left" Margin="230,363,0,0" VerticalAlignment="Top" Width="158"/>
         <Button x:Name="Song_Library_Save" Content="Save Library" Click="Song_Library_Save_Click" HorizontalAlignment="Left" Margin="119,363,0,0" VerticalAlignment="Top" Width="88"/>
         <Button x:Name="Song_Library_Load" Content="Load Library" Click="Song_Library_Load_Click" HorizontalAlignment="Left" Margin="10,363,0,0" VerticalAlignment="Top" Width="88"/>
         <Button x:Name="Song_Library_Add_Song_To_Playlist" Content="Add To Playlist" Click="Song_Library_Add_Song_To_Playlist_Click" HorizontalAlignment="Left" Margin="674,363,0,0" VerticalAlignment="Top" Width="88"/>
-        <Button x:Name="Song_Library_Remove" Content="Remove Song" Click="Song_Library_Remove_Click" HorizontalAlignment="Left" Margin="341,363,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="Song_Library_Remove" Content="Remove Song from Library" Click="Song_Library_Remove_Click" HorizontalAlignment="Left" Margin="408,363,0,0" VerticalAlignment="Top" Width="158"/>
 
     </Grid>
 </Window>
