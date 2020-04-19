@@ -55,6 +55,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label x:Name="Create_Playlist_Label" Content="Create a Playlist to Start" Grid.Column="1" HorizontalAlignment="Left" Margin="599,356,0,0" VerticalAlignment="Top" Width="136" FontFamily="Ink Free" Foreground="#FF4C96D7" FontWeight="Bold" FontSize="11"/>
+        <Label x:Name="Create_Playlist_Label" Content="Create a Playlist to Start" HorizontalAlignment="Left" Margin="582,356,0,0" VerticalAlignment="Top" Width="162" FontFamily="Ink Free" Foreground="#FF4C96D7" FontWeight="Bold" BorderBrush="#FF4C96D7" Background="Transparent" FontSize="13"/>
     </Grid>
 </Window>
