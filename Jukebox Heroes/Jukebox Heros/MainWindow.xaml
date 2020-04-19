@@ -36,8 +36,11 @@
             </Button.Background>
         </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Button x:Name="Pause_Button" Content="" HorizontalAlignment="Left" Margin="300,338,0,0" VerticalAlignment="Top" Width="26" RenderTransformOrigin="1.333,1.067" Height="24">
 =======
+=======
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
         <Button x:Name="Pause_Button" Content="" HorizontalAlignment="Left" Margin="-780,-524,0,0" VerticalAlignment="Top" Width="642" Grid.Column="1" Height="566" RenderTransformOrigin="1.714,1.6" IsCancel="True">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -53,8 +56,11 @@
             </Button.Background>
         </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Button x:Name="Stop_Button" Content="" Margin="331,338,432,20" >
 =======
+=======
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
         <Button x:Name="Stop_Button" Content="" HorizontalAlignment="Left" Margin="-63,57,0,-265" VerticalAlignment="Top" Width="788" Grid.Column="1" Height="588" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -73,8 +79,11 @@
         <Slider x:Name="Song_Slider" Thumb.DragStarted="Song_Slider_DragStarted" Thumb.DragCompleted="Song_Slider_DragCompleted" ValueChanged="Song_Slider_ValueChanged" HorizontalAlignment="Left" Margin="143,309,0,0" VerticalAlignment="Top" Width="451" Grid.Column="1"/>
         <TextBlock x:Name="Song_Time_Text" Text="00:00:00" HorizontalAlignment="Left" Margin="90,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Button x:Name="Next_Button" Content="" Margin="416,338,349,20" RenderTransformOrigin="-0.897,0.787">
 =======
+=======
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
         <Button x:Name="Next_Button" Content="" HorizontalAlignment="Left" Margin="129,66,-12,-256" VerticalAlignment="Top" Width="612" Grid.Column="1" Height="570" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -90,8 +99,11 @@
             </Button.Background>
         </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Button x:Name="Previous_Button" Content="" Margin="386,338,379,20">
 =======
+=======
+>>>>>>> parent of 4d6e885... Created a MessageBox to guide users to thier next selection
         <Button x:Name="Previous_Button" Content="" HorizontalAlignment="Left" Margin="2,60,-93,-281" VerticalAlignment="Top" Width="820" Grid.Column="1" Height="601" RenderTransformOrigin="0.183,0.35">
             <Button.RenderTransform>
                 <TransformGroup>
