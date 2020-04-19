@@ -82,7 +82,7 @@ namespace Jukebox_Heroes
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-            joinWindow = new Join(player);
+            joinWindow = new Join();
             joinWindow.Show();
         }
 

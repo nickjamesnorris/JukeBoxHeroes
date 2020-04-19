@@ -35,45 +35,37 @@ namespace Jukebox_Heroes.Server
                 Console.WriteLine("Server is Listening....");
                 Socket ClientSocket = default;
 
-                int counter = 0;
 
                 while (true)
                 {
-                    counter++;
                     
                     ClientSocket = listener.Accept();
-                    Console.WriteLine(counter + " Clients connected");
+                    Console.WriteLine("Client connected");
 
-                    if (counter >= 2)
+                    Application.Current.Dispatcher.Invoke((Action)delegate
                     {
-                        Application.Current.Dispatcher.Invoke((Action)delegate
-                        {
-                            MainWindow joiner = new MainWindow();
-
+                        MainWindow joiner = new MainWindow();
+                        
                             List<SongData> list = playlist.getAllSongs();
 
-                            for (int i = 0; i < list.Count; i++)
-                            {
-                                Uri newUri = new Uri("http://localhost:8080/" + list[i].filePath);
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            Uri newUri = new Uri("http://" + GetIPAddress().ToString() + ":8080/" + list[i].filePath);
 
-                                if (songLibrary.isFileInLibrary(newUri)) //If the file we're adding is inside the library
-                                {
-                                    SongData newSong = new SongData(list[i].filePath);
-                                    newSong.songUri = newUri;
+                            SongData newSong = new SongData(list[i].filePath);
+                            newSong.songUri = newUri;
 
-                                    Console.WriteLine(newUri);
-                                    joiner.playlist.addSong(newSong);
-                                }
-                            }
+                            Console.WriteLine(newUri);
+                            joiner.playlist.addSong(newSong);
+                                
+                        }
 
                             joiner.Join_Button.Visibility = Visibility.Hidden;
                             joiner.Host_Button.Visibility = Visibility.Hidden;
                             joiner.Add_Song_To_Playlist_Button.Visibility = Visibility.Hidden;
                             joiner.Remove_Song_From_Playlist_Button.Visibility = Visibility.Hidden;
-                            joiner.Song_List_Box.Width = 188;
                             joiner.Show();
                         });
-                    }
                 }
             }
             catch (Exception e)
@@ -81,5 +73,20 @@ namespace Jukebox_Heroes.Server
                 Console.WriteLine(e.ToString());
             }
         }
+
+        public IPAddress GetIPAddress() {
+            IPHostEntry Host = default(IPHostEntry);
+            string Hostname = null;
+            Hostname = System.Environment.MachineName;
+            Host = Dns.GetHostEntry(Hostname);
+            foreach (IPAddress IP in Host.AddressList) {
+                if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) {
+                    return IP;
+                }
+            }
+
+            return null;
+        }
+
     }
 }

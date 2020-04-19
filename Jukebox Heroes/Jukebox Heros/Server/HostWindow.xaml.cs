@@ -52,10 +52,8 @@ namespace Jukebox_Heroes.Server
             }
             Server_Start();
 
-            Client client = new Client();
-            client.StartClient(this.portNum);
             
-            MediaServer mediaServer = new MediaServer("http://localhost:8080/");
+            MediaServer mediaServer = new MediaServer("http://+:8080/");
             mediaServer.Run();
             Close();
         }

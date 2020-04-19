@@ -22,13 +22,10 @@ namespace Jukebox_Heroes.Server
     /// </summary>
     public partial class Join : Window
     {
-        IPlayer player;
 
-        public Join(IPlayer player)
+        public Join()
         {
             InitializeComponent();
-
-            this.player = player;
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
@@ -45,7 +42,6 @@ namespace Jukebox_Heroes.Server
 
             Client client = new Client();
             client.StartClient(portNum);
-            player.setSource(new Uri("http://localhost:8080/"));
             Close();
         }
 
