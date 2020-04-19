@@ -62,7 +62,7 @@ namespace Jukebox_Heroes.Server
                                joiner.playlist.addSong(newSong);
                             }
 
-                            joiner.Hosting_Label.Content = "You are listening to " + ipAddr + ":" + portNum + "'s playlist";
+                            joiner.Hosting_Label.Content = "You are listening to " + GetIPAddress().ToString() + ":" + portNum + "'s playlist";
                             joiner.Hosting_Label.Visibility = Visibility.Visible;
                             joiner.Create_Playlist_Label.Visibility = Visibility.Hidden;
                             joiner.Join_Button.Visibility = Visibility.Hidden;

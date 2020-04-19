@@ -84,7 +84,7 @@ namespace Jukebox_Heroes
                 return;
             } 
 
-            serverWindow = new ServerWindow(Song_List_Box, Hosting_Label, songLibrary);
+            serverWindow = new ServerWindow(playlist, Hosting_Label, songLibrary);
             serverWindow.Show();
         }
 
