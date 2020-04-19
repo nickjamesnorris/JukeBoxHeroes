@@ -53,7 +53,7 @@ namespace Jukebox_Heroes.Server
             Server_Start();
 
             
-            MediaServer mediaServer = new MediaServer("http://+:8080/");
+            MediaServer mediaServer = new MediaServer("http://+:8080/", songLibrary);
             mediaServer.Run();
             Close();
         }
@@ -62,7 +62,7 @@ namespace Jukebox_Heroes.Server
         {
             Port_Number_txtbox.Text = this.portNum.ToString();
             Port_Number_txtbox.IsEnabled = false;
-            Listener listen = new Listener(this.playlist, this.songLibrary);
+            Listener listen = new Listener(this.playlist);
 
             await Task.Run(() =>
             {
