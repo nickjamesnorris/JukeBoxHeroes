@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jukebox_Heroes"
         mc:Ignorable="d"
-        Title="JukeBox Heroes" Height="Auto" Width="Auto" WindowState="Maximized" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Background="#FF191919">
+        Title="JukeBox Heroes" Height="Auto" Width="Auto" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Background="#FF191919">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="382" Width="790">
-        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="601,61,0,0" VerticalAlignment="Top" Width="128" Background="{x:Null}" Foreground="White" Grid.Column="1" AutomationProperties.HelpText="Create a Playlist to Get Started"/>
+        <ListBox x:Name="Song_List_Box" HorizontalAlignment="Left" Height="261" Margin="601,61,0,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="128" Background="{x:Null}" Foreground="White" Grid.Column="1" AutomationProperties.HelpText="Create a Playlist to Get Started"/>
         <Button x:Name="Add_Song_To_Playlist_Button" Content="Create Playlist" Click="Add_Song_To_Playlist_Button_Click" HorizontalAlignment="Left" Margin="599,322,0,0" VerticalAlignment="Top" Width="131" FontWeight="Bold" Background="#FF74D14C" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" Height="29" FontFamily="Arial" FontSize="16"/>
         <Button x:Name="Remove_Song_From_Playlist_Button" Click="Remove_Song_From_Playlist_Button_Click" Content="Remove Song" HorizontalAlignment="Left" Margin="599,36,0,0" VerticalAlignment="Top" Width="131" Height="25" Background="#FF74D14C" FontSize="16" FontWeight="Bold" Grid.Column="1" BorderBrush="#FF0630F0" Foreground="#FF0275FF" FontFamily="Arial" />
         <Button x:Name="Play_Button" Content="" Margin="271,338,495,20" RenderTransformOrigin="14.222,7.154">

@@ -22,12 +22,18 @@ namespace Jukebox_Heroes.SongLibrary
 
         public void addSong(SongData song)
         {
+            foreach (SongData existingSong in songList) {
+                if (existingSong.filePath == song.filePath) {
+                    MessageBox.Show(song.title + " is already in your library");
+                    return;
+                }
+            }
             songList.Add(song);
         }
 
-        public void removeSong(int songID)
+        public void removeSong(string filePath)
         {
-            songList.Remove(getSong(songID));
+            songList.Remove(getSong(filePath));
         }
 
         public void saveLibrary() {
@@ -35,9 +41,16 @@ namespace Jukebox_Heroes.SongLibrary
                 System.IO.Directory.CreateDirectory(".//data");
                 
             }
+            
+            List<string> songFilePathList = new List<string>();
+
+            foreach(SongData song in songList) {
+                songFilePathList.Add(song.filePath);
+            }
+
             FileStream file = File.Create(libraryFilePath);
             file.Close();
-            File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(this));
+            File.WriteAllText(libraryFilePath, JsonConvert.SerializeObject(songFilePathList));
         }
 
         public void loadLibrary() {
@@ -46,21 +59,26 @@ namespace Jukebox_Heroes.SongLibrary
                 MessageBox.Show("Need to first have a saved library in order to load one.");
                 return;
             }
-            SongLibraryData library;
-            library = JsonConvert.DeserializeObject<SongLibraryData>(File.ReadAllText(libraryFilePath));
+            
+            List<string> library = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(libraryFilePath));
+
             if(library == null)
             {
                 MessageBox.Show("library.json could not be opened.");
                 return;
             }
-     
-            songList = library.songList;
+            
+            songList.Clear();
+
+            foreach (string filePath in library) {
+                songList.Add(new SongData(filePath));
+            }
 
         }
 
-        public SongData getSong(int songID) {
+        public SongData getSong(string filePath) {
             foreach (SongData song in songList) {
-                if (song.songID == songID) return song;
+                if (song.filePath == filePath) return song;
             }
             return null;
         }
