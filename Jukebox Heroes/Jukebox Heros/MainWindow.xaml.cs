@@ -32,6 +32,7 @@ namespace Jukebox_Heroes
     {
         IPlayer player;
         public IPlaylistData playlist;
+        public ImageSource Source { get; set; }
         ISongLibraryData songLibrary;
         Window songLibraryWindow;
         Window serverWindow;
@@ -66,6 +67,7 @@ namespace Jukebox_Heroes
         }
 
         private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+            MessageBox.Show("Start by Clicking the Upload Song Button and Uploading Music From Your Local Drive");
             songLibraryWindow = new SongLibraryWindow(songLibrary, playlist);
             songLibraryWindow.Show();
         }
@@ -85,7 +87,6 @@ namespace Jukebox_Heroes
             joinWindow = new Join();
             joinWindow.Show();
         }
-
     }
 }
 

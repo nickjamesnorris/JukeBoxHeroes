@@ -166,11 +166,50 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-
     <Resource Include="Server\d7b01e1846494f4557f107996843b4ee.jpeg" />
-
     <Resource Include="AlbumArtPlaceholder.png" />
-
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="JukeBoxLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="next - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="JBlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="play1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="play1-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pause-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="stop-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forward-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="backward-1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
