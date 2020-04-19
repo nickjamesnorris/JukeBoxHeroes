@@ -67,6 +67,8 @@ namespace Jukebox_Heroes
         }
 
         private void Add_Song_To_Playlist_Button_Click(object sender, RoutedEventArgs e) {
+
+            MessageBox.Show("Start by Clicking the Upload Song Button and Uploading Music From Your Local Drive");
             songLibraryWindow = new SongLibraryWindow(songLibrary, playlist);
             songLibraryWindow.Show();
         }
