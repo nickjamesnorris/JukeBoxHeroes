@@ -78,7 +78,7 @@ namespace Jukebox_Heroes
 
         private void Host_Button_Click(object sender, RoutedEventArgs e)
         {
-            serverWindow = new ServerWindow(Song_List_Box);
+            serverWindow = new ServerWindow(Song_List_Box, Hosting_Label);
             serverWindow.Show();
         }
 
