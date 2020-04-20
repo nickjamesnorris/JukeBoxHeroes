@@ -80,13 +80,17 @@ namespace Jukebox_Heroes.PlayerUI
         public void GetSong()
         {
             SongData song = playList.getCurrentSong();
+            
             if (song != null)
             {
-                mediaPlayer.Source = song.songUri;
-                loadSongInfoInWindow(albumArt, songInfo);
-                mediaPlayer.Position = new TimeSpan(0);
+                if(mediaPlayer.Source == null || !song.songUri.AbsolutePath.Equals(mediaPlayer.Source.AbsolutePath)) {
+                    mediaPlayer.Source = song.songUri;
+                    loadSongInfoInWindow(albumArt, songInfo);
+                    mediaPlayer.Position = new TimeSpan(0);
+
+                }
             }
-            
+
         }
 
         public void OnMediaEnded(object sender, EventArgs e)
