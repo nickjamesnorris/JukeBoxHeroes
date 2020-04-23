@@ -23,6 +23,7 @@ using System.Windows.Threading;
 using System.Net.Sockets;
 using System.Net;
 using System.Security.Principal;
+using System.ComponentModel;
 
 namespace Jukebox_Heroes
 {
@@ -33,7 +34,6 @@ namespace Jukebox_Heroes
     {
         public IPlayer player;
         public IPlaylistData playlist;
-        public ImageSource Source { get; set; }
         ISongLibraryData songLibrary;
         Window songLibraryWindow;
         Window serverWindow;
@@ -53,6 +53,12 @@ namespace Jukebox_Heroes
             Stop_Button.Click += player.Stop_Click;
             Next_Button.Click += player.Next_Click;
             Previous_Button.Click += player.Previous_Click;
+        }
+
+        // Change the volume of the media.
+        private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)
+        {
+            Media_Element.Volume = (double)volumeSlider.Value;
         }
 
         private void Song_Slider_DragStarted(object sender, DragStartedEventArgs e) {
